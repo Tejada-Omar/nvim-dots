@@ -11,24 +11,10 @@ return {
     opts = function()
       local utils = require('omar.plugins.lsp.utils.utils')
       local null_ls = require('null-ls')
-      local formatting = null_ls.builtins.formatting
       local hover = null_ls.builtins.hover
 
       return {
         sources = {
-          formatting.prettierd,
-          formatting.black,
-          require('none-ls.formatting.eslint_d'),
-          formatting.stylua,
-          formatting.shfmt.with {
-            extra_args = { '-i', 2, '-ci', '-sr' },
-          },
-          require('none-ls.formatting.latexindent'),
-          formatting.goimports,
-          formatting.goimports_reviser,
-          formatting.golines.with {
-            '--shorten-comments',
-          },
           require('none-ls.code_actions.eslint_d'),
           require('none-ls-shellcheck.code_actions'),
           hover.dictionary.with {

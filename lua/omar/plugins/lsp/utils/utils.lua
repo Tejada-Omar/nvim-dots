@@ -1,26 +1,5 @@
 local M = {}
 
-local format_augroup =
-  vim.api.nvim_create_augroup('FORMATTING', { clear = true })
-
-M.format_on_save = function(client, bufnr)
-  if client.supports_method('textDocument/formatting') then
-    vim.api.nvim_clear_autocmds { group = format_augroup, buffer = bufnr }
-    vim.api.nvim_create_autocmd('BufWritePre', {
-      group = format_augroup,
-      buffer = bufnr,
-      callback = function()
-        vim.lsp.buf.format {
-          filter = function(inner_client)
-            return inner_client.name ~= 'tsserver'
-          end,
-          buffer = bufnr,
-        }
-      end,
-    })
-  end
-end
-
 M.mappings = function(bufnr)
   vim.api.nvim_set_option_value(
     'omnifunc',
@@ -102,13 +81,6 @@ M.mappings = function(bufnr)
     desc = 'List all references to symbol in quickfix window',
     buffer = bufnr,
   })
-
-  vim.keymap.set('n', '<Space>f', function()
-    vim.lsp.buf.format {
-      filter = function(client) return client.name ~= 'tsserver' end,
-      async = true,
-    }
-  end, { desc = 'Format a buffer using attached LSP', buffer = bufnr })
 end
 
 return M
