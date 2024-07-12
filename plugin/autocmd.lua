@@ -33,3 +33,7 @@ vim.api.nvim_create_autocmd('TermLeave', {
     vim.o.relativenumber = true
   end,
 })
+
+vim.api.nvim_create_autocmd({ 'BufNew', 'BufWritePost' }, {
+  callback = function(_) require('lint').try_lint() end,
+})
