@@ -44,9 +44,8 @@ return {
           enabled = true,
         },
       },
-      window = {
+      win = {
         border = 'double',
-        position = 'bottom',
       },
     },
   },
