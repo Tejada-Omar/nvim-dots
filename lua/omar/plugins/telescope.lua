@@ -80,7 +80,7 @@ return {
         opts = {
           use_git_branch = true,
           default_branch = 'master',
-          autoload = true,
+          autoload = false,
           ignored_dirs = {
             { '/tmp', exact = true },
           },
