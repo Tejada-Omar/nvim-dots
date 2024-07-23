@@ -4,7 +4,7 @@ return {
     lazy = false,
     init = function()
       require('lint').linters_by_ft = {
-        yaml = { 'actionlint' },
+        ['yaml.gha'] = { 'actionlint' },
         ['yaml.ansible'] = { 'ansible_lint' },
         proto = { 'buf_lint', 'protolint' },
         lua = { 'luacheck' },
