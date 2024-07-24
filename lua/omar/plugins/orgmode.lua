@@ -11,6 +11,7 @@ return {
       org_todo_keywords = { 'TODO(t)', 'NEXT', '|', 'DONE' },
       win_split_mode = 'auto',
       calendar_week_start_day = 0,
+      org_startup_indented = true,
       org_startup_folded = 'inherit',
       emacs_config = {
         executable_path = 'emacs',
