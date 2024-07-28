@@ -17,9 +17,6 @@ return {
         sources = {
           require('none-ls.code_actions.eslint_d'),
           require('none-ls-shellcheck.code_actions'),
-          hover.dictionary.with {
-            extra_filetypes = { 'vimwiki' },
-          },
         },
 
         on_attach = function(_, bufnr)

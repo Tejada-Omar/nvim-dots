@@ -32,7 +32,7 @@ return {
   {
     'Tejada-Omar/notes-compile.nvim',
     dev = false,
-    ft = { 'markdown', 'vimwiki' },
+    ft = 'markdown',
     config = true,
   },
 }

@@ -46,10 +46,7 @@ return {
       lsp.marksman.setup {
         capabilities = capabilities,
         on_attach = on_attach,
-        filetypes = {
-          'markdown',
-          'vimwiki',
-        },
+        filetypes = { 'markdown' },
       }
 
       lsp.gopls.setup {

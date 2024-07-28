@@ -98,8 +98,6 @@ return {
         ),
       })
 
-      ls.filetype_extend('vimwiki', { 'markdown' })
-
       local tex = {}
       tex.in_mathzone = function()
         return vim.fn['vimtex#syntax#in_mathzone']() == 1
