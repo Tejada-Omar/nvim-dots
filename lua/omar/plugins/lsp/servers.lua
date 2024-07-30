@@ -10,6 +10,19 @@ return {
         vim.diagnostic.setqflist,
         desc = 'Add all diagnostics to quickfix list',
       },
+      {
+        '<SPACE>s',
+        function()
+          vim.g.diag_virt_text = not vim.g.diag_virt_text
+          vim.diagnostic.show(
+            nil,
+            nil,
+            nil,
+            { virtual_text = vim.g.diag_virt_text }
+          )
+        end,
+        desc = 'Toggle diagnostic virtual text',
+      },
     },
     config = function()
       local lsp = require('lspconfig')
@@ -23,8 +36,10 @@ return {
 
       vim.lsp.set_log_level(vim.lsp.log_levels.WARN)
 
+      vim.g.diag_virt_text = false
+
       vim.diagnostic.config {
-        virtual_text = false,
+        virtual_text = vim.g.diag_virt_text,
         signs = true,
         severity_sort = true,
         float = { source = true },
