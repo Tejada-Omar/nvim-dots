@@ -24,8 +24,8 @@ return {
       vim.lsp.set_log_level(vim.lsp.log_levels.WARN)
 
       vim.diagnostic.config {
-        virtual_text = { spacing = 1 },
-        signs = false,
+        virtual_text = false,
+        signs = true,
         severity_sort = true,
         float = { source = true },
       }
