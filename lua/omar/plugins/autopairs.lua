@@ -20,10 +20,10 @@ return {
       -- Treesitter check inside tex block
       -- npairs.add_rule(rule('*', '*', {'markdown'}))
 
-      require('cmp').event:on(
-        'confirm_done',
-        require('nvim-autopairs.completion.cmp').on_confirm_done()
-      )
+      -- require('cmp').event:on(
+      --   'confirm_done',
+      --   require('nvim-autopairs.completion.cmp').on_confirm_done()
+      -- )
     end,
   },
 }
