@@ -32,6 +32,7 @@ return {
       vim.cmd("let g:mkdp_theme = 'dark'")
     end,
     build = function() vim.fn['mkdp#util#install']() end,
+    enabled = false,
     keys = {
       {
         '<C-s>',

@@ -3,6 +3,7 @@ return {
     {
       'mfussenegger/nvim-dap',
       build = ':helptags ALL',
+      enabled = false,
       keys = {
         {
           '<leader>db',
@@ -39,6 +40,7 @@ return {
     {
       'mrcjkb/rustaceanvim',
       build = ':helptags ALL',
+      enabled = false,
       init = function()
         vim.g.rustacenvim = function()
           local on_attach = function(_, bufnr)
@@ -82,6 +84,7 @@ return {
     {
       'rcarriga/nvim-dap-ui',
       event = 'VeryLazy',
+      enabled = false,
       dependencies = {
         'mfussenegger/nvim-dap',
         'nvim-neotest/nvim-nio',
@@ -91,7 +94,7 @@ return {
         dapui.setup()
       end,
     },
-    { 'LiadOz/nvim-dap-repl-highlights', config = true },
-    { 'leoluz/nvim-dap-go', ft = 'go', config = true },
+    { 'LiadOz/nvim-dap-repl-highlights', config = true, enabled = false },
+    { 'leoluz/nvim-dap-go', ft = 'go', config = true, enabled = false },
   },
 }
