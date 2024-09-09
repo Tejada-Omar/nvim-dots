@@ -9,7 +9,7 @@ return {
         function()
           require('conform').format {
             lsp_format = 'first',
-            filter = function(client) return client.name ~= 'tsserver' end,
+            filter = function(client) return client.name ~= 'ts_ls' end,
           }
         end,
         desc = 'Format buffer',
@@ -39,7 +39,7 @@ return {
       },
       format_after_save = {
         lsp_format = 'first',
-        filter = function(client) return client.name ~= 'tsserver' end,
+        filter = function(client) return client.name ~= 'ts_ls' end,
       },
     },
     config = function(_, opts)
