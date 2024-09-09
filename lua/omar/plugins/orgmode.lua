@@ -8,7 +8,8 @@ return {
     opts = {
       org_agenda_files = { '~/Documents/org/**/*' },
       org_default_notes_file = homedir .. 'notes.org',
-      org_todo_keywords = { 'TODO(t)', 'NEXT', '|', 'DONE' },
+      org_log_into_drawer = 'LOGBOOK',
+      org_todo_keywords = { 'TODO(t)', 'PROJ', 'NEXT', 'HOLD', '|', 'DONE', 'KILL' },
       win_split_mode = 'auto',
       calendar_week_start_day = 0,
       org_startup_indented = true,
@@ -20,13 +21,13 @@ return {
       org_capture_templates = {
         t = {
           description = 'Task',
-          template = '* TODO %?\n %u',
-          target = homedir .. 'todo.org',
+          template = '* TODO %?',
+          target = homedir .. 'inbox.org',
           headline = 'Inbox',
         },
         n = {
           description = 'Note',
-          template = '* NOTE %?\n %u',
+          template = '* %?\n%i\n%a %^{CREATED|%U}p',
           target = homedir .. 'notes.org',
           headline = 'Inbox',
         },
