@@ -7,7 +7,6 @@ return {
         ['yaml.gha'] = { 'actionlint' },
         ['yaml.ansible'] = { 'ansible_lint' },
         proto = { 'buf_lint', 'protolint' },
-        lua = { 'luacheck' },
         go = { 'golangcilint' },
         typescript = { 'eslint_d' },
         javascript = { 'eslint_d' },
