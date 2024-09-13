@@ -108,6 +108,7 @@ return {
         'ansiblels',
         'docker_compose_language_service',
         'bufls',
+        'clangd',
       }
 
       for _, server in pairs(language_servers) do
