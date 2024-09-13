@@ -102,9 +102,17 @@ return {
   {
     'NeogitOrg/neogit',
     event = 'VeryLazy',
-    keys = { { '<leader>g', '<CMD>Neogit<CR>', desc = 'Open Neogit' } },
+    keys = {
+      { '<leader>gg', '<CMD>Neogit<CR>', desc = 'Open Neogit' },
+      {
+        '<leader>gs',
+        '<CMD>Neogit kind=auto<CR>',
+        desc = 'Open Neogit in split',
+      },
+    },
     opts = {
       commit_editor = {
+        kind = 'replace',
         staged_diff_split_kind = 'auto',
       },
     },
