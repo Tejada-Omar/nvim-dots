@@ -36,10 +36,7 @@ return {
         tex = { 'latexindent' },
         -- golines called regular goimports implicitly
         go = { 'golines', 'goimports-reviser' },
-      },
-      format_after_save = {
-        lsp_format = 'first',
-        filter = function(client) return client.name ~= 'ts_ls' end,
+        cpp = { 'clang-format' },
       },
     },
     config = function(_, opts)
