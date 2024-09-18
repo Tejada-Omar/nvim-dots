@@ -15,6 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local colorscheme = 'rose-pine'
 vim.g.lualine_theme = colorscheme
+vim.g.maplocalleader = ' '
 
 require('lazy').setup({ import = 'omar/plugins' }, {
   lazy = true,
