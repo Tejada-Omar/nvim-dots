@@ -94,6 +94,19 @@ return {
         },
       }
 
+      lsp.clangd.setup {
+        capabilities = capabilities,
+        on_attach = function(_, bufnr)
+          utils.mappings(bufnr)
+          vim.keymap.set(
+            'n',
+            '<localleader>o',
+            '<CMD>ClangdSwitchSourceHeader<CR>',
+            { buffer = true }
+          )
+        end,
+      }
+
       -- Look into .get_mappings()
       local language_servers = {
         'pyright',
@@ -108,7 +121,6 @@ return {
         'ansiblels',
         'docker_compose_language_service',
         'bufls',
-        'clangd',
       }
 
       for _, server in pairs(language_servers) do
