@@ -13,6 +13,11 @@ return {
         out_dir = 'latex-bin',
       }
 
+      vim.g['vimtex_compiler_latexmk_engines'] = {
+        _ = '-pdf',
+        pdf_escaped = '-pdf -pdflatex="pdflatex -shell-escape %O %S"',
+      }
+
       vim.g['vimtex_syntax_conceal'] = {
         accents = 1,
         ligatures = 1,
