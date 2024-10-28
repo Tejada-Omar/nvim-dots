@@ -26,10 +26,6 @@ return {
     ft = 'yaml',
   },
   {
-    'wildfunctions/myeyeshurt',
-    config = true,
-  },
-  {
     'Tejada-Omar/notes-compile.nvim',
     dev = false,
     ft = 'markdown',
