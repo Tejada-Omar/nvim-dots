@@ -60,6 +60,16 @@ call vimtex#imaps#add_map({
       \})
 ]])
 
+      vim.cmd([[
+call vimtex#imaps#add_map({
+      \ 'lhs' : '<M-S-i>',
+      \ 'rhs' : '\litem{',
+      \ 'leader'  : '',
+      \ 'wrapper' : 'vimtex#imaps#wrap_environment',
+      \ 'context' : [ 'itemize', 'enumerate', 'description' ],
+      \})
+]])
+
       --  " Add custom mapping: #rX -> \mathrm{X}
       --  call vimtex#imaps#add_map({
       --        \ 'lhs' : 'r',
