@@ -37,6 +37,7 @@ return {
         -- golines called regular goimports implicitly
         go = { 'golines', 'goimports-reviser' },
         cpp = { 'clang-format' },
+        java = { 'google-java-format' },
       },
     },
     config = function(_, opts)
