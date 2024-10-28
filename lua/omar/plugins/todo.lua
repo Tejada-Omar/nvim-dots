@@ -8,5 +8,12 @@ return {
         fg = 'italic',
       },
     },
+    keys = {
+      {
+        '<leader>xt',
+        '<CMD>TodoTrouble<CR>',
+        desc = 'Quickfix List (Trouble)',
+      },
+    }
   },
 }
