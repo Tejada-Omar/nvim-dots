@@ -46,6 +46,9 @@ return {
       conform.formatters.golines = {
         prepend_args = { '--shorten-comments' },
       }
+      conform.formatters.latexindent = {
+        prepend_args = { '-l', '.latexindent.yaml' },
+      }
     end,
   },
 }
