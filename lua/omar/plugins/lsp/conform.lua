@@ -48,7 +48,7 @@ return {
         prepend_args = { '--shorten-comments' },
       }
       conform.formatters.latexindent = {
-        prepend_args = { '-l', '.latexindent.yaml' },
+        prepend_args = { '-l', '.latexindent.yaml', '-m' },
       }
     end,
   },
