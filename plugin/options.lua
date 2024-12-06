@@ -27,5 +27,6 @@ vim.g.netrw_liststyle = 3
 vim.g.netrw_banner = 0
 
 vim.o.cmdheight = 1
+vim.o.spell = false
 
 vim.opt.grepprg = 'rg -Hi --vimgrep $*'
