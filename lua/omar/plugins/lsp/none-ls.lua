@@ -16,7 +16,6 @@ return {
       return {
         sources = {
           require('none-ls.code_actions.eslint_d'),
-          require('none-ls-shellcheck.code_actions'),
         },
 
         on_attach = function(_, bufnr)
