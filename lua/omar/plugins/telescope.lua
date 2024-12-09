@@ -7,6 +7,12 @@ return {
         selection_caret = '  ',
         entry_prefix = ' ',
         sorting_strategy = 'ascending',
+        path_display = {
+          shorten = {
+            len = 2,
+            exclude = {-2, -1}
+          }
+        },
         layout_config = {
           prompt_position = 'top',
         },
@@ -15,14 +21,29 @@ return {
             ['<leader><cr>'] = 'file_edit',
           },
         },
-        extensions = {
-          fzf = {
-            fuzzy = true,
-            override_generic_sorter = true,
-            override_file_sorter = true,
-            case_mode = 'smart_case',
-          },
+        file_ignore_patterns = {
+          "%.pdf",
+          "%.mp4",
+          "%.zip",
+          "%.gz",
+          "%.tar",
         },
+        preview = {
+          treesitter = {
+            disable = {
+              "text",
+              "man",
+            }
+          }
+        },
+        -- extensions = {
+        --   fzf = {
+        --     fuzzy = true,
+        --     override_generic_sorter = true,
+        --     override_file_sorter = true,
+        --     case_mode = 'smart_case',
+        --   },
+        -- },
       },
       pickers = {
         live_grep = {
@@ -72,6 +93,7 @@ return {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make',
         config = function() require('telescope').load_extension('fzf') end,
+        enabled = false
       },
       {
         'olimorris/persisted.nvim',
