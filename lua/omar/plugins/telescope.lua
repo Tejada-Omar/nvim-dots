@@ -73,7 +73,12 @@ return {
       },
       {
         '<leader>fb',
-        '<CMD>Telescope buffers<CR>',
+        function ()
+          require('telescope.builtin').buffers {
+            cwd_only = true,
+            sort_mru = true
+          }
+        end,
         desc = 'Fuzzy-find buffers',
       },
       {
@@ -82,9 +87,28 @@ return {
         desc = 'Fuzzy-find help tags',
       },
       {
+        '<leader>fm',
+        function ()
+          require('telescope.builtin').man_pages {
+            sections = {"1", "2", "3", "5", "7"}
+          }
+        end,
+        desc = 'Fuzzy-find man pages',
+      },
+      {
         '<leader>fo',
         '<CMD>Telescope oldfiles<CR>',
         desc = 'Fuzzy-find old files',
+      },
+      {
+        '<leader>fr',
+        '<CMD>Telescope registers<CR>',
+        desc = 'Fuzzy-find registers',
+      },
+      {
+        '<leader>fc',
+        '<CMD>Telescope command_history<CR>',
+        desc = 'Fuzzy-find command history',
       },
     },
     config = true,
