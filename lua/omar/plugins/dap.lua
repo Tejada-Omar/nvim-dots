@@ -74,6 +74,7 @@ return {
             },
             dap = {
               auto_generate_source_map = true,
+              load_rust_types = true,
             },
           }
         end
@@ -85,6 +86,13 @@ return {
       dependencies = {
         'mfussenegger/nvim-dap',
         'nvim-neotest/nvim-nio',
+      },
+      keys = {
+        {
+          '<leader>dt',
+          function() require('dapui').toggle() end,
+          desc = 'Open dap ui',
+        },
       },
       config = function()
         local dapui = require('dapui')
