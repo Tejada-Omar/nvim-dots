@@ -49,7 +49,12 @@ return {
     keys = {
       {
         '<leader>ff',
-        '<CMD>Telescope find_files<CR>',
+        function()
+          require('telescope.builtin').find_files {
+            follow = true,
+            hidden = true,
+          }
+        end,
         desc = 'Fuzzy-find files',
       },
       {
