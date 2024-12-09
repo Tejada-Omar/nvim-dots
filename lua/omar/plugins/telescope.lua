@@ -10,8 +10,8 @@ return {
         path_display = {
           shorten = {
             len = 4,
-            exclude = {-2, -1}
-          }
+            exclude = { -2, -1 },
+          },
         },
         layout_config = {
           prompt_position = 'top',
@@ -22,11 +22,11 @@ return {
           },
         },
         file_ignore_patterns = {
-          "%.pdf",
-          "%.mp4",
-          "%.zip",
-          "%.gz",
-          "%.tar",
+          '%.pdf',
+          '%.mp4',
+          '%.zip',
+          '%.gz',
+          '%.tar',
         },
         preview = {
           treesitter = false,
@@ -73,10 +73,10 @@ return {
       },
       {
         '<leader>fb',
-        function ()
+        function()
           require('telescope.builtin').buffers {
             cwd_only = true,
-            sort_mru = true
+            sort_mru = true,
           }
         end,
         desc = 'Fuzzy-find buffers',
@@ -88,9 +88,9 @@ return {
       },
       {
         '<leader>fm',
-        function ()
+        function()
           require('telescope.builtin').man_pages {
-            sections = {"1", "2", "3", "5", "7"}
+            sections = { '1', '2', '3', '5', '7' },
           }
         end,
         desc = 'Fuzzy-find man pages',
@@ -117,7 +117,7 @@ return {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make',
         config = function() require('telescope').load_extension('fzf') end,
-        enabled = false
+        enabled = false,
       },
       {
         'olimorris/persisted.nvim',
