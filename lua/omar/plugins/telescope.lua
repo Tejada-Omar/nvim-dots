@@ -9,7 +9,7 @@ return {
         sorting_strategy = 'ascending',
         path_display = {
           shorten = {
-            len = 2,
+            len = 4,
             exclude = {-2, -1}
           }
         },
@@ -29,12 +29,7 @@ return {
           "%.tar",
         },
         preview = {
-          treesitter = {
-            disable = {
-              "text",
-              "man",
-            }
-          }
+          treesitter = false,
         },
         -- extensions = {
         --   fzf = {
