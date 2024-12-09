@@ -132,6 +132,7 @@ return {
           },
           should_autosave = function()
             if vim.bo.filetype == 'oil' then return false end
+            if vim.bo.filetype == 'gitcommit' then return false end
 
             return true
           end,
