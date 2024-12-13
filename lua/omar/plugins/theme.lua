@@ -1,6 +1,7 @@
 return {
   {
     'nvim-tree/nvim-web-devicons',
+    cond = vim.g.fancy_living,
     config = true,
   },
   {
@@ -62,9 +63,9 @@ return {
         options = {
           ruler = true,
         },
-        twilight = { enabled = true },
+        twilight = { cond = vim.g.fancy_living },
         gitsigns = { enabled = true },
-        tmux = { enabled = true },
+        todo = { enabled = true },
       },
     },
     keys = {

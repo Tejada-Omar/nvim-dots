@@ -9,7 +9,6 @@ return {
       local utils = require('omar.plugins.lsp.utils.utils')
 
       local on_attach = function(_, bufnr)
-        jdtls.setup.add_commands()
         utils.mappings(bufnr)
 
         vim.keymap.set(

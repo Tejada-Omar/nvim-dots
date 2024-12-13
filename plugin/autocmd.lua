@@ -19,5 +19,8 @@ vim.api.nvim_create_autocmd('TermLeave', {
 })
 
 vim.api.nvim_create_autocmd({ 'BufNew', 'BufWritePost' }, {
-  callback = function(_) require('lint').try_lint() end,
+  callback = function(_)
+    if not vim.g.lsp_enabled then return end
+    require('lint').try_lint()
+  end,
 })

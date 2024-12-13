@@ -1,6 +1,7 @@
 return {
   {
     'uga-rosa/ccc.nvim',
+    cond = vim.g.fancy_living,
     lazy = false,
     opts = {
       highlight_mode = 'virtual',

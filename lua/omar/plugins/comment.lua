@@ -7,7 +7,7 @@ return {
       end,
     },
     config = true,
-    dependencies = { { 'JoosepAlviste/nvim-ts-context-commentstring' } },
+    dependencies = { 'JoosepAlviste/nvim-ts-context-commentstring' },
   },
   {
     'kylechui/nvim-surround',

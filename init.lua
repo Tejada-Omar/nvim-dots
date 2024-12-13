@@ -13,8 +13,20 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+vim.g.fancy_living = vim.fn.has('termguicolors') == 1
+vim.g.lsp_enabled = true
+if os.getenv('NVIM_LSP_ENABLED') ~= 'true' then
+  vim.g.lsp_enabled = false
+end
+
 local colorscheme = 'rose-pine'
 vim.g.lualine_theme = colorscheme
+
+if not vim.g.fancy_living then
+  colorscheme = 'default'
+  vim.g.lualine_theme = 'auto'
+end
+
 vim.g.maplocalleader = ' '
 
 require('lazy').setup({ import = 'omar/plugins' }, {

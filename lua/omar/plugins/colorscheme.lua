@@ -1,6 +1,7 @@
 return {
   {
     'folke/tokyonight.nvim',
+    cond = vim.g.fancy_living,
     lazy = false,
     priority = 1000,
     opts = {
@@ -16,12 +17,14 @@ return {
   {
     'rose-pine/neovim',
     name = 'rose-pine',
+    cond = vim.g.fancy_living,
     lazy = false,
     priority = 1000,
     config = true,
   },
   {
     'Everblush/nvim',
+    cond = vim.g.fancy_living,
     name = 'everblush',
     lazy = false,
     priority = 1000,

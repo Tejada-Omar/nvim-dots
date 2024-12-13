@@ -1,8 +1,12 @@
 return {
-  { import = 'omar/plugins/lsp' },
+  { import = 'omar/plugins/lsp', cond = vim.g.lsp_enabled },
   {
     'williamboman/mason.nvim',
     config = true,
-    dependencies = { 'nvim-telescope/telescope.nvim' },
+    cond = vim.g.lsp_enabled,
+    dependencies = {
+      'nvim-telescope/telescope.nvim',
+      optional = true
+    },
   },
 }

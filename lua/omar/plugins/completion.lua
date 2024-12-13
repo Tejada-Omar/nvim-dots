@@ -19,6 +19,16 @@ return {
             == nil
       end
 
+      local sources = {
+        { name = 'luasnip' },
+        { name = 'orgmode' },
+        { name = 'mkdnflow' },
+      }
+
+      if vim.g.lsp_enabled then
+        table.insert(sources, 1, { name = 'nvim_lsp' })
+      end
+
       return {
         mapping = {
           ['<C-o>'] = cmp.mapping.scroll_docs(-4),
@@ -50,16 +60,7 @@ return {
         snippet = {
           expand = function(args) require('luasnip').lsp_expand(args.body) end,
         },
-        sources = {
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' },
-          { name = 'orgmode' },
-          { name = 'mkdnflow' },
-        },
-        {
-          { name = 'buffer' },
-          { name = 'path' },
-        },
+        sources = sources,
       }
     end,
     config = function(_, opts)
@@ -78,29 +79,31 @@ return {
 
       cmp.setup.cmdline(':', {
         mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-          { name = 'path' },
-        }, {
+        sources = cmp.config.sources {
           { name = 'cmdline' },
-        }),
-      })
-
-      cmp.setup.filetype({ 'dap-repl', 'dapui_watches', 'dapui_hover' }, {
-        sources = {
-          { name = 'dap' },
         },
       })
     end,
   },
-  'hrsh7th/cmp-nvim-lsp',
+  { 'hrsh7th/cmp-nvim-lsp', cond = vim.g.lsp_enabled },
   'saadparwaiz1/cmp_luasnip',
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-cmdline',
   { 'hrsh7th/cmp-path', enabled = false },
   {
     'rcarriga/cmp-dap',
+    cond = vim.g.lsp_enabled,
     dependencies = {
       'mfussenegger/nvim-dap',
+      optional = true,
+      config = function()
+        local cmp = require('cmp')
+        cmp.setup.filetype({ 'dap-repl', 'dapui_watches', 'dapui_hover' }, {
+          sources = {
+            { name = 'dap' },
+          },
+        })
+      end,
     },
   },
 }
