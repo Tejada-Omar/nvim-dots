@@ -18,7 +18,11 @@ return {
             nil,
             nil,
             nil,
-            { virtual_text = vim.g.diag_virt_text }
+            {
+              virtual_text = vim.g.diag_virt_text,
+              underline = vim.g.diag_virt_text,
+              signs = vim.g.diag_virt_text,
+            }
           )
         end,
         desc = 'Toggle diagnostic virtual text',
