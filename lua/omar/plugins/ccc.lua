@@ -13,7 +13,7 @@ return {
       { '<leader>cc', '<CMD>CccPick<CR>', desc = 'Open color picker' },
       {
         '<leader>ct',
-        '<CMD>CccHighlighterToggle',
+        '<CMD>CccHighlighterToggle<CR>',
         desc = 'Toggle color highlighter',
       },
       {
