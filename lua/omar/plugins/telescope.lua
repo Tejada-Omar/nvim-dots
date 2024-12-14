@@ -156,6 +156,18 @@ return {
               vim.api.nvim_input('<ESC>:%bd!<CR>')
             end,
           })
+
+          vim.api.nvim_create_autocmd('User', {
+            pattern = 'PersistedSavePre',
+            callback = function()
+              for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+                local ft = vim.bo[buf].filetype
+                if ft == 'oil' or ft == 'gitcommit' then
+                  vim.api.nvim_buf_delete(buf, { force = true })
+                end
+              end
+            end,
+          })
         end,
         keys = {
           {
