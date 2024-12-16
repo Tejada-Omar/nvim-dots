@@ -124,7 +124,7 @@ return {
         'tailwindcss',
         'ansiblels',
         'docker_compose_language_service',
-        'buf_ls',
+        'bufls',
       }
 
       for _, server in pairs(language_servers) do
