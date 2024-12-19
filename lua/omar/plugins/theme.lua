@@ -50,32 +50,4 @@ return {
       },
     },
   },
-  {
-    'folke/zen-mode.nvim',
-    opts = {
-      window = {
-        backdrop = 1,
-        options = {
-          list = true,
-        },
-      },
-      plugins = {
-        options = {
-          ruler = true,
-        },
-        twilight = { cond = vim.g.fancy_living },
-        gitsigns = { enabled = true },
-        todo = { enabled = true },
-      },
-    },
-    keys = {
-      { '<leader>z', '<CMD>ZenMode<CR>', desc = 'Toggle zen mode' },
-    },
-    dependencies = {
-      {
-        'folke/twilight.nvim',
-        config = true,
-      },
-    },
-  },
 }
