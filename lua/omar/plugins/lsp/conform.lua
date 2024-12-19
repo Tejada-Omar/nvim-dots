@@ -8,7 +8,6 @@ return {
         '<space>f',
         function()
           require('conform').format {
-            lsp_format = 'first',
             filter = function(client) return client.name ~= 'ts_ls' end,
           }
         end,

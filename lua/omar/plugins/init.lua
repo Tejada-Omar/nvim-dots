@@ -18,7 +18,7 @@ return {
     keys = {
       { '<leader><leader>i', '<CMD>IconPickerNormal<CR>' },
       { '<leader><leader>y', '<CMD>IconPickerYank<CR>' },
-      { '<C-i>', '<CMD>IconPickerInsert<CR>', mode = 'i' },
+      { '<C-S-u>', '<CMD>IconPickerInsert<CR>', mode = 'i' },
     },
   },
   {

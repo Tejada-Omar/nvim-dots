@@ -1,109 +1,52 @@
+local sources = { 'luasnip', 'buffer', 'path' }
+if vim.g.lsp_enabled then table.insert(sources, 1, 'lsp') end
+
 return {
   {
-    'hrsh7th/nvim-cmp',
-    event = 'UIEnter',
-    dependencies = {
-      { 'L3MON4D3/LuaSnip' },
-    },
-    opts = function()
-      local luasnip = require('luasnip')
-      local cmp = require('cmp')
-
-      local has_words_before = function()
-        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-        return col ~= 0
-          and vim.api
-              .nvim_buf_get_lines(0, line - 1, line, true)[1]
-              :sub(col, col)
-              :match('%s')
-            == nil
-      end
-
-      local sources = {
-        { name = 'luasnip' },
-        { name = 'orgmode' },
-        { name = 'mkdnflow' },
-      }
-
-      if vim.g.lsp_enabled then
-        table.insert(sources, 1, { name = 'nvim_lsp' })
-      end
-
-      return {
-        mapping = {
-          ['<C-o>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-p>'] = cmp.mapping.scroll_docs(4),
-          ['<C-Space>'] = cmp.mapping.complete(),
-          ['<C-e>'] = cmp.mapping.close(),
-          ['<CR>'] = cmp.mapping.confirm { select = true },
-          ['<Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
-            elseif has_words_before() then
-              cmp.complete()
-            else
-              fallback()
-            end
-          end, { 'i', 's' }),
-          ['<S-Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-              luasnip.jump(-1)
-            else
-              fallback()
-            end
-          end, { 'i', 's' }),
+    'saghen/blink.cmp',
+    build = 'cargo build --release',
+    dependencies = { 'L3MON4D3/LuaSnip' },
+    opts_extend = { 'sources.default' },
+    opts = {
+      keymap = {
+        preset = 'default',
+        ['<C-j>'] = { 'snippet_forward', 'fallback' },
+        ['<C-k>'] = { 'snippet_backward', 'fallback' },
+      },
+      sources = { default = sources },
+      completion = {
+        list = { selection = 'manual' },
+        keyword = {
+          regex = '[-_#]\\|\\k',
         },
-        snippet = {
-          expand = function(args) require('luasnip').lsp_expand(args.body) end,
-        },
-        sources = sources,
-      }
-    end,
-    config = function(_, opts)
-      local cmp = require('cmp')
-
-      vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-
-      cmp.setup(opts)
-
-      cmp.setup.cmdline({ '/', '?' }, {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = 'buffer' },
-        },
-      })
-
-      cmp.setup.cmdline(':', {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources {
-          { name = 'cmdline' },
-        },
-      })
-    end,
-  },
-  { 'hrsh7th/cmp-nvim-lsp', cond = vim.g.lsp_enabled },
-  'saadparwaiz1/cmp_luasnip',
-  'hrsh7th/cmp-buffer',
-  'hrsh7th/cmp-cmdline',
-  { 'hrsh7th/cmp-path', enabled = false },
-  {
-    'rcarriga/cmp-dap',
-    cond = vim.g.lsp_enabled,
-    dependencies = {
-      'mfussenegger/nvim-dap',
-      optional = true,
-      config = function()
-        local cmp = require('cmp')
-        cmp.setup.filetype({ 'dap-repl', 'dapui_watches', 'dapui_hover' }, {
-          sources = {
-            { name = 'dap' },
+        documentation = { auto_show = true },
+        ghost_text = { enabled = true },
+        menu = {
+          draw = {
+            treesitter = { 'lsp' },
+            columns = {
+              { 'label', 'label_description', gap = 1 },
+              { 'kind_icon', 'source_name', gap = 1 },
+            },
           },
-        })
-      end,
+        },
+      },
+      signature = { enabled = true },
+      snippets = {
+        expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
+        jump = function(direction) require('luasnip').jump(direction) end,
+        active = function(filter)
+          if filter and filter.direction then
+            return require('luasnip').jumpable(filter.direction)
+          end
+          return require('luasnip').in_snippet()
+        end,
+      },
     },
+  },
+  {
+    'saghen/blink.compat',
+    lazy = true,
+    config = true,
   },
 }

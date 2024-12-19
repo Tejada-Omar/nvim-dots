@@ -2,6 +2,7 @@ return {
   {
     'lervag/vimtex',
     ft = { 'tex' },
+    dependencies = { 'micangl/cmp-vimtex' },
     init = function()
       vim.g.vimtex_view_method = 'zathura'
       vim.g.vimtex_view_use_temp_files = 1
@@ -42,13 +43,6 @@ return {
       }
     end,
     config = function()
-      vim.fn['vimtex#imaps#add_map'] {
-        lhs = 't',
-        rhs = "vimtex#imaps#style_math('text')",
-        expr = 1,
-        leader = '#',
-      }
-
       -- Because flop
       vim.cmd([[
 call vimtex#imaps#add_map({
@@ -63,21 +57,27 @@ call vimtex#imaps#add_map({
       vim.cmd([[
 call vimtex#imaps#add_map({
       \ 'lhs' : '<M-S-i>',
-      \ 'rhs' : '\litem{',
+      \ 'rhs' : '\item[',
       \ 'leader'  : '',
       \ 'wrapper' : 'vimtex#imaps#wrap_environment',
       \ 'context' : [ 'itemize', 'enumerate', 'description' ],
       \})
 ]])
-
-      --  " Add custom mapping: #rX -> \mathrm{X}
-      --  call vimtex#imaps#add_map({
-      --        \ 'lhs' : 'r',
-      --        \ 'rhs' : 'vimtex#imaps#style_math("mathrm")',
-      --        \ 'expr' : 1,
-      --        \ 'leader' : '#',
-      --        \ 'wrapper' : 'vimtex#imaps#wrap_math'
-      --        \})
     end,
+  },
+  {
+    'saghen/blink.cmp',
+    optional = true,
+    opts = {
+      sources = {
+        default = { 'vimtex' },
+        providers = {
+          vimtex = {
+            name = 'vimtex',
+            module = 'blink.compat.source',
+          },
+        },
+      },
+    },
   },
 }
