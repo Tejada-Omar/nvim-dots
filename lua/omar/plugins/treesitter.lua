@@ -5,7 +5,10 @@ return {
     event = { 'VimEnter', 'BufNew', 'BufEnter' },
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
-      'nvim-treesitter/nvim-treesitter-context',
+      {
+        'nvim-treesitter/nvim-treesitter-context',
+        opts = { min_window_height = 24, max_lines = 4 },
+      },
       {
         'JoosepAlviste/nvim-ts-context-commentstring',
         opts = { enable_autocmd = false },
