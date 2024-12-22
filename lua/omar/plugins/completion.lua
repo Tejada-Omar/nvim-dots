@@ -4,7 +4,7 @@ if vim.g.lsp_enabled then table.insert(sources, 1, 'lsp') end
 return {
   {
     'saghen/blink.cmp',
-    build = 'cargo build --release',
+    version = '*',
     dependencies = { 'L3MON4D3/LuaSnip' },
     opts_extend = { 'sources.default' },
     opts = {
@@ -46,6 +46,7 @@ return {
   },
   {
     'saghen/blink.compat',
+    version = '*',
     lazy = true,
     config = true,
   },
