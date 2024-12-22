@@ -20,7 +20,7 @@ vim.o.cc = '81'
 vim.o.splitright = true
 vim.o.splitbelow = true
 
-vim.o.jumpoptions = 'view'
+vim.opt.jumpoptions = { 'view', 'clean' }
 
 vim.g.netrw_liststyle = 3
 vim.g.netrw_banner = 0
