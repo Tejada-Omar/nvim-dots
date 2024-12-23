@@ -28,33 +28,40 @@ return {}, {
 
   s(
     {
-      trig = ';e',
-      desc = 'Create equation',
+      trig = ';wq',
+      desc = 'Create display equation',
       condition = in_text,
       show_condition = in_text,
     },
     fmta(
       [[
   \begin{equation}
-  <>
+    <>
   \end{equation}
   ]],
       { i(0) }
     )
   ),
 
+  s({
+    trig = ';e',
+    desc = 'Create inline equation',
+    condition = in_text,
+    show_condition = in_text,
+  }, fmt('${}$', { i(0) })),
+
   s(
     {
-      trig = ';a',
+      trig = ';wa',
       desc = 'Create align',
       condition = in_text,
       show_condition = in_text,
     },
     fmta(
       [[
-  \begin{equation}
-  <>
-  \end{equation}
+  \begin{align}
+    <>
+  \end{align}
   ]],
       { i(0) }
     )
