@@ -12,15 +12,58 @@ local function scope_defaults()
 end
 
 return {
-  s({ trig = 'feat' }, sn(1, { t('feat'), d(1, scope_defaults) })),
-  s({ trig = 'fix' }, sn(1, { t('fix'), d(1, scope_defaults) })),
-  s({ trig = 'docs' }, sn(1, { t('docs'), d(1, scope_defaults) })),
-  s({ trig = 'refactor' }, sn(1, { t('refactor'), d(1, scope_defaults) })),
-  s({ trig = 'style' }, sn(1, { t('style'), d(1, scope_defaults) })),
-  s({ trig = 'perf' }, sn(1, { t('perf'), d(1, scope_defaults) })),
-  s({ trig = 'test' }, sn(1, { t('test'), d(1, scope_defaults) })),
-  s({ trig = 'chore' }, sn(1, { t('chore'), d(1, scope_defaults) })),
-  s({ trig = 'build' }, sn(1, { t('build'), d(1, scope_defaults) })),
-  s({ trig = 'ci' }, sn(1, { t('ci'), d(1, scope_defaults) })),
-  s({ trig = 'release' }, sn(1, { t('release'), d(1, scope_defaults) })),
+  ms(
+    { 'feat', { trig = ';f', snippetType = 'autosnippet' } },
+    sn(1, { t('feat'), d(1, scope_defaults) })
+  ),
+
+  ms(
+    { 'fix', { trig = ';F', snippetType = 'autosnippet' } },
+    sn(1, { t('fix'), d(1, scope_defaults) })
+  ),
+
+  ms(
+    { 'refactor', { trig = ';r', snippetType = 'autosnippet' } },
+    sn(1, { t('refactor'), d(1, scope_defaults) })
+  ),
+
+  ms(
+    { 'release', { trig = ';R', snippetType = 'autosnippet' } },
+    sn(1, { t('release'), d(1, scope_defaults) })
+  ),
+
+  ms(
+    { 'chore', { trig = ';c', snippetType = 'autosnippet' } },
+    sn(1, { t('chore'), d(1, scope_defaults) })
+  ),
+
+  ms(
+    { 'ci', { trig = ';C', snippetType = 'autosnippet' } },
+    sn(1, { t('ci'), d(1, scope_defaults) })
+  ),
+
+  ms(
+    { 'docs', { trig = ';d', snippetType = 'autosnippet' } },
+    sn(1, { t('docs'), d(1, scope_defaults) })
+  ),
+
+  ms(
+    { 'style', { trig = ';s', snippetType = 'autosnippet' } },
+    sn(1, { t('style'), d(1, scope_defaults) })
+  ),
+
+  ms(
+    { 'perf', { trig = ';p', snippetType = 'autosnippet' } },
+    sn(1, { t('perf'), d(1, scope_defaults) })
+  ),
+
+  ms(
+    { 'test', { trig = ';t', snippetType = 'autosnippet' } },
+    sn(1, { t('test'), d(1, scope_defaults) })
+  ),
+
+  ms(
+    { 'build', { trig = ';b', snippetType = 'autosnippet' } },
+    sn(1, { t('build'), d(1, scope_defaults) })
+  ),
 }
