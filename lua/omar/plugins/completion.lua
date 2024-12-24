@@ -37,6 +37,7 @@ return {
         documentation = { auto_show = true },
         ghost_text = { enabled = true },
         menu = {
+          max_height = 30,
           draw = {
             treesitter = { 'lsp' },
             columns = {
@@ -46,7 +47,10 @@ return {
           },
         },
       },
-      signature = { enabled = true },
+      signature = {
+        enabled = true,
+        window = { max_height = 20 },
+      },
       snippets = {
         expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
         jump = function(direction) require('luasnip').jump(direction) end,
