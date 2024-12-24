@@ -24,9 +24,13 @@ return {
         ['<C-j>'] = { 'snippet_forward', 'fallback' },
         ['<C-k>'] = { 'snippet_backward', 'fallback' },
       },
-      sources = { default = sources },
+      sources = { default = sources, cmdline = {} },
       completion = {
-        list = { selection = 'manual' },
+        list = {
+          selection = function(ctx)
+            return ctx.mode == 'cmdline' and 'auto_insert' or 'manual'
+          end,
+        },
         keyword = {
           regex = '[-_#]\\|\\k',
         },
