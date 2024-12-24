@@ -16,7 +16,6 @@ return {
 
       return config
     end,
-    config = true,
     keys = {
       { '<leader>tt', desc = 'Open toggleterm' },
       {

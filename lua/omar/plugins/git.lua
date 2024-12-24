@@ -35,57 +35,57 @@ return {
         buffer = 0,
       },
       {
-        '<leader>hs',
+        '<leader>gs',
         '<CMD>Gitsigns stage_hunk<CR>',
         mode = { 'n', 'v' },
         desc = 'Stage hunk',
         buffer = 0,
       },
       {
-        '<leader>hr',
+        '<leader>gr',
         '<CMD>Gitsigns reset_hunk<CR>',
         mode = { 'n', 'v' },
         desc = 'Reset hunk',
         buffer = 0,
       },
       {
-        '<leader>hS',
+        '<leader>gS',
         '<CMD>Gitsigns stage_buffer<CR>',
         desc = 'Stage entire buffer',
         buffer = 0,
       },
       {
-        '<leader>hu',
+        '<leader>gu',
         '<CMD>Gitsigns undo_stage_hunk<CR>',
         desc = 'Undo stage hunk',
         buffer = 0,
       },
       {
-        '<leader>hR',
+        '<leader>gR',
         '<CMD>Gitsigns reset_buffer<CR>',
         desc = 'Reset entire buffer',
         buffer = 0,
       },
       {
-        '<leader>hp',
+        '<leader>gp',
         '<CMD>Gitsigns preview_hunk<CR>',
         desc = 'Preview hunk',
         buffer = 0,
       },
       {
-        '<leader>hb',
+        '<leader>gb',
         function() require('gitsigns').blame_line { full = true } end,
         desc = 'Blame line',
         buffer = 0,
       },
       {
-        '<leader>tb',
+        '<leader>gtb',
         '<CMD>Gitsigns toggle_current_line_blame<CR>',
         desc = 'Toggle current line blame',
         buffer = 0,
       },
       {
-        '<leader>td',
+        '<leader>gtd',
         '<CMD>Gitsigns toggle_deleted<CR>',
         desc = 'Toggle deleted code',
         buffer = 0,
@@ -101,6 +101,7 @@ return {
   },
   {
     'NeogitOrg/neogit',
+    enabled = false,
     event = 'VeryLazy',
     keys = {
       { '<leader>gg', '<CMD>Neogit<CR>', desc = 'Open Neogit' },
@@ -127,6 +128,13 @@ return {
         },
       },
       'nvim-telescope/telescope.nvim',
+    },
+  },
+  {
+    'tpope/vim-fugitive',
+    dependencies = { 'tpope/vim-rhubarb', 'shumphrey/fugitive-gitlab.vim' },
+    keys = {
+      { '<leader>gg', '<CMD>Git<CR>', desc = 'Open Git' },
     },
   },
 }
