@@ -4,12 +4,23 @@ if vim.g.lsp_enabled then table.insert(sources, 1, 'lsp') end
 return {
   {
     'saghen/blink.cmp',
+    event = 'InsertEnter',
     version = '*',
     dependencies = { 'L3MON4D3/LuaSnip' },
     opts_extend = { 'sources.default' },
     opts = {
       keymap = {
-        preset = 'default',
+        preset = 'none',
+        ['<C-SPACE>'] = { 'show', 'show_documentation', 'hide_documentation' },
+        ['<C-e>'] = { 'hide', 'fallback' },
+        ['<CR>'] = { 'accept', 'fallback' },
+
+        ['<C-S-n>'] = { 'scroll_documentation_up', 'fallback' },
+        ['<C-S-p>'] = { 'scroll_documentation_up', 'fallback' },
+
+        ['<C-n>'] = { 'select_next', 'fallback' },
+        ['<C-p>'] = { 'select_prev', 'fallback' },
+
         ['<C-j>'] = { 'snippet_forward', 'fallback' },
         ['<C-k>'] = { 'snippet_backward', 'fallback' },
       },
