@@ -137,4 +137,29 @@ return {
       { '<leader>gg', '<CMD>Git<CR>', desc = 'Open Git' },
     },
   },
+  {
+    'akinsho/toggleterm.nvim',
+    optional = true,
+    config = function(_, opts)
+      require('toggleterm').setup(opts)
+
+      local lazygit = require('toggleterm.terminal').Terminal:new {
+        cmd = 'lazygit',
+        dir = 'git_dir',
+        direction = 'float',
+      }
+
+      vim.keymap.set(
+        { 'n', 't' },
+        '<leader>g=',
+        function() lazygit:toggle() end
+      )
+    end,
+    keys = {
+      {
+        '<leader>g=',
+        desc = 'Toggle lazygit window',
+      },
+    },
+  },
 }
