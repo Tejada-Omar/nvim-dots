@@ -127,6 +127,7 @@ return {
   },
   {
     'tpope/vim-fugitive',
+    lazy = false,
     dependencies = { 'tpope/vim-rhubarb', 'shumphrey/fugitive-gitlab.vim' },
     keys = {
       { '<leader>gg', '<CMD>Git<CR>', desc = 'Open Git' },
