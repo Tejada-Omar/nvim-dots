@@ -2,7 +2,7 @@ return {
   {
     'neovim/nvim-lspconfig',
     event = { 'VimEnter', 'BufNew' },
-    dependencies = { 'saghen/blink.cmp' },
+    dependencies = { 'hrsh7th/cmp-nvim-lsp' },
     keys = {
       { '<SPACE>e', vim.diagnostic.open_float, desc = 'Open diagnostic' },
       {
@@ -32,7 +32,7 @@ return {
       local lsp = require('lspconfig')
       local utils = require('omar.plugins.lsp.utils.utils')
 
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
       local on_attach = function(_, bufnr) utils.mappings(bufnr) end
 
       vim.lsp.set_log_level(vim.lsp.log_levels.WARN)

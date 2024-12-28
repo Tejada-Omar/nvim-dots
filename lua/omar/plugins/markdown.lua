@@ -3,6 +3,14 @@ return {
     'jakewvincent/mkdnflow.nvim',
     main = 'mkdnflow',
     ft = 'markdown',
+    dependencies = {
+      'hrsh7th/nvim-cmp',
+      opts = function()
+        require('cmp').setup.filetype('markdown', {
+          sources = { { name = 'mkdnflow' } },
+        })
+      end,
+    },
     opts = {
       modules = {
         foldtext = false,
@@ -37,21 +45,6 @@ return {
         '<C-s>',
         '<Plug>MarkdownPreviewToggle',
         desc = 'Preview Markdown in browser',
-      },
-    },
-  },
-  {
-    'saghen/blink.cmp',
-    optional = true,
-    opts = {
-      sources = {
-        default = { 'mkdnflow' },
-        providers = {
-          mkdnflow = {
-            name = 'mkdnflow',
-            module = 'blink.compat.source',
-          },
-        },
       },
     },
   },

@@ -29,6 +29,28 @@ return {
     end,
     keys = {
       {
+        '<C-j>',
+        function()
+          local ls = require('luasnip')
+          if ls.jumpable(1) then
+            ls.jump(1)
+          end
+        end,
+        mode = {'i', 's'},
+        desc = 'Jump to next snippet'
+      },
+      {
+        '<C-k>',
+        function()
+          local ls = require('luasnip')
+          if ls.jumpable(-1) then
+            ls.jump(-1)
+          end
+        end,
+        mode = {'i', 's'},
+        desc = 'Jump to previous snippet'
+      },
+      {
         '<C-h>',
         function()
           local ls = require('luasnip')

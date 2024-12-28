@@ -10,19 +10,12 @@ return {
   },
   { 'Bilal2453/luvit-meta', lazy = true },
   {
-    'saghen/blink.cmp',
+    'hrsh7th/nvim-cmp',
     optional = true,
-    opts = {
-      sources = {
-        default = { 'lazydev' },
-        providers = {
-          lazydev = {
-            name = 'LazyDev',
-            module = 'lazydev.integrations.blink',
-            fallbacks = { 'lsp' },
-          },
-        },
-      },
-    },
+    opts = function()
+      require('cmp').setup.filetype('lua', {
+        sources = { { name = 'lazydev', group_index = 0 } },
+      })
+    end,
   },
 }

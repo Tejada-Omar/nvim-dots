@@ -1,72 +1,113 @@
-local sources = { 'luasnip', 'buffer', 'path' }
-if vim.g.lsp_enabled then table.insert(sources, 1, 'lsp') end
-
 return {
   {
-    'saghen/blink.cmp',
+    'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
-    version = '*',
-    dependencies = { 'L3MON4D3/LuaSnip' },
-    opts_extend = { 'sources.default' },
-    opts = {
-      keymap = {
-        preset = 'none',
-        ['<C-SPACE>'] = { 'show', 'show_documentation', 'hide_documentation' },
-        ['<C-e>'] = { 'hide', 'fallback' },
-        ['<CR>'] = { 'accept', 'fallback' },
-
-        ['<C-S-n>'] = { 'scroll_documentation_up', 'fallback' },
-        ['<C-S-p>'] = { 'scroll_documentation_up', 'fallback' },
-
-        ['<C-n>'] = { 'select_next', 'fallback' },
-        ['<C-p>'] = { 'select_prev', 'fallback' },
-
-        ['<C-j>'] = { 'snippet_forward', 'fallback' },
-        ['<C-k>'] = { 'snippet_backward', 'fallback' },
-      },
-      sources = { default = sources, cmdline = {} },
-      completion = {
-        list = {
-          selection = function(ctx)
-            return ctx.mode == 'cmdline' and 'auto_insert' or 'manual'
-          end,
-        },
-        keyword = {
-          regex = '[-_#]\\|\\k',
-        },
-        documentation = { auto_show = true },
-        ghost_text = { enabled = true },
-        menu = {
-          max_height = 30,
-          draw = {
-            treesitter = { 'lsp' },
-            columns = {
-              { 'label', 'label_description', gap = 1 },
-              { 'kind_icon', 'source_name', gap = 1 },
-            },
-          },
-        },
-      },
-      signature = {
-        enabled = true,
-        window = { max_height = 20 },
-      },
-      snippets = {
-        expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
-        jump = function(direction) require('luasnip').jump(direction) end,
-        active = function(filter)
-          if filter and filter.direction then
-            return require('luasnip').jumpable(filter.direction)
-          end
-          return require('luasnip').in_snippet()
-        end,
-      },
+    dependencies = {
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
+      'windwp/nvim-autopairs',
+      { 'hrsh7th/cmp-nvim-lsp', cond = vim.g.lsp_enabled },
+      { 'hrsh7th/cmp-nvim-lsp-signature-help', cond = vim.g.lsp_enabled },
     },
+    opts = function(_, opts)
+      local cmp = require('cmp')
+
+      opts.sources = opts.sources or {}
+      table.insert(opts.sources, 1, { name = 'luasnip' })
+
+      if vim.g.lsp_enabled then
+        vim.list_extend(opts.sources, {
+          { name = 'nvim_lsp' },
+          { name = 'nvim_lsp_signature_help' },
+        })
+      end
+
+      require('cmp').event:on(
+        'confirm_done',
+        require('nvim-autopairs.completion.cmp').on_confirm_done()
+      )
+
+      return {
+        snippet = {
+          expand = function(args) require('luasnip').lsp_expand(args.body) end,
+        },
+        sources = opts.sources,
+        preselect = 'none',
+        mapping = {
+          ['<C-space'] = function()
+            if cmp.visible_docs() then
+              cmp.close_docs()
+            else
+              cmp.open_docs()
+            end
+          end,
+          ['<C-n>'] = {
+            i = function()
+              if cmp.visible() then
+                cmp.select_next_item { behavior = 'insert' }
+              else
+                cmp.complete()
+              end
+            end,
+          },
+          ['<C-p>'] = {
+            i = function()
+              if cmp.visible() then
+                cmp.select_prev_item { behavior = 'insert' }
+              else
+                cmp.complete()
+              end
+            end,
+          },
+          ['<C-y>'] = {
+            i = cmp.mapping.confirm { select = false },
+          },
+          ['<C-e>'] = {
+            i = cmp.mapping.abort(),
+          },
+          ['<CR>'] = cmp.mapping {
+            i = function(fallback)
+              if not cmp.visible() or not cmp.get_active_entry() then
+                fallback()
+                return
+              end
+
+              cmp.confirm { behaviour = 'replace', select = false }
+            end,
+            s = cmp.mapping.confirm { select = true },
+            c = cmp.mapping.confirm { behaviour = 'replace', select = false },
+          },
+          ['<C-S-n>'] = cmp.mapping.scroll_docs(-2),
+          ['<C-S-p>'] = cmp.mapping.scroll_docs(2),
+        },
+      }
+    end,
   },
   {
-    'saghen/blink.compat',
-    version = '*',
-    lazy = true,
-    config = true,
+    'hrsh7th/cmp-cmdline',
+    event = 'CmdlineEnter',
+    dependencies = {
+      'hrsh7th/nvim-cmp',
+      { url = 'https://codeberg.org/FelipeLema/cmp-async-path.git' },
+      'hrsh7th/cmp-buffer',
+    },
+    config = function()
+      local cmp = require('cmp')
+
+      cmp.setup.cmdline({ '/', '?' }, {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = 'buffer' },
+        },
+      })
+
+      cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources {
+          { name = 'async_path' },
+          { name = 'cmdline' },
+        },
+      })
+    end,
   },
 }

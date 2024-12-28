@@ -51,18 +51,12 @@ return {
     },
   },
   {
-    'saghen/blink.cmp',
-    optional = true,
-    opts = {
-      sources = {
-        default = {'orgmode'},
-        providers = {
-          orgmode = {
-            name = 'orgmode',
-            module = 'orgmode.org.autocompletion.blink',
-          },
-        },
-      },
-    },
+    'hrsh7th/nvim-cmp',
+    opts = function()
+      require('cmp').setup.filetype(
+        { 'orgmode' },
+        { sources = { name = 'orgmode' } }
+      )
+    end,
   },
 }
