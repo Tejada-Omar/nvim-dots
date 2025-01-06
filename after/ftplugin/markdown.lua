@@ -1,1 +1,1 @@
-vim.o.spell = true
+vim.o.spell = false
