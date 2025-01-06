@@ -40,8 +40,9 @@ return {
     'mrcjkb/rustaceanvim',
     build = ':helptags ALL',
     cond = vim.g.lsp_enabled,
+    lazy = false,
     init = function()
-      vim.g.rustacenvim = function()
+      vim.g.rustaceanvim = function()
         local on_attach = function(_, bufnr)
           local utils = require('omar.plugins.lsp.utils.utils')
           utils.mappings(bufnr)
@@ -50,14 +51,6 @@ return {
         return {
           server = {
             on_attach = on_attach,
-            cmd = function()
-              local mason_reg = require('mason-registry')
-              local ra = mason_reg.is_installed('rust-analyzer')
-                  and mason_reg.get_package('rust-analyzer'):get_install_path() .. '/rust-analyzer'
-                or 'rust-analyzer'
-
-              return { ra }
-            end,
             default_settings = {
               ['rust-analyzer'] = {
                 procMacro = {
