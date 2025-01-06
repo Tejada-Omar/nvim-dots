@@ -13,49 +13,49 @@ return {
 
         vim.keymap.set(
           'n',
-          '<Space>di',
+          '<localleader>di',
           jdtls.organize_imports,
           { desc = 'Organize imports', buffer = bufnr }
         )
 
         vim.keymap.set(
           'n',
-          '<Space>de',
+          '<localleader>de',
           jdtls.extract_variable,
           { desc = 'Extract variables', buffer = bufnr }
         )
 
         vim.keymap.set(
           'n',
-          '<Space>dn',
+          '<localleader>dn',
           jdtls.extract_method,
           { desc = 'Extract method', buffer = bufnr }
         )
 
         vim.keymap.set(
           'n',
-          '<Space>dc',
+          '<localleader>dc',
           jdtls.extract_constant,
           { desc = 'Extract constant', buffer = bufnr }
         )
 
         vim.keymap.set(
           'n',
-          '<Space>dt',
+          '<localleader>dt',
           jdtls.test_class,
           { desc = 'Test java class', buffer = bufnr }
         )
 
         vim.keymap.set(
           'n',
-          '<Space>dy',
+          '<localleader>dy',
           jdtls.test_nearest_method,
           { desc = 'Test nearest java method', buffer = bufnr }
         )
 
         vim.keymap.set(
           'n',
-          '<Space>dd',
+          '<localleader>dd',
           jdtlsdap.setup_dap_main_class_configs,
           { desc = 'Setup dap', buffer = bufnr }
         )

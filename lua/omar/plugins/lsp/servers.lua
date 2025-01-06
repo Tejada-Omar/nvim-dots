@@ -4,14 +4,14 @@ return {
     event = { 'VimEnter', 'BufNew' },
     dependencies = { 'hrsh7th/cmp-nvim-lsp' },
     keys = {
-      { '<SPACE>e', vim.diagnostic.open_float, desc = 'Open diagnostic' },
+      { '<localleader>e', vim.diagnostic.open_float, desc = 'Open diagnostic' },
       {
-        '<SPACE>q',
+        '<localleader>q',
         vim.diagnostic.setqflist,
         desc = 'Add all diagnostics to quickfix list',
       },
       {
-        '<SPACE>s',
+        '<localleader>s',
         function()
           vim.g.diag_virt_text = not vim.g.diag_virt_text
           vim.diagnostic.show(

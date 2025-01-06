@@ -5,7 +5,7 @@ return {
     cmd = { 'ConformInfo' },
     keys = {
       {
-        '<space>f',
+        '<localleader>f',
         function()
           require('conform').format {
             filter = function(client) return client.name ~= 'ts_ls' end,

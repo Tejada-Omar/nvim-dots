@@ -1,12 +1,6 @@
 local M = {}
 
 M.mappings = function(bufnr)
-  vim.api.nvim_set_option_value(
-    'omnifunc',
-    'v:lua.nvim.lsp.omnifunc',
-    { scope = 'local' }
-  )
-
   vim.keymap.set(
     'n',
     'gD',
@@ -37,43 +31,43 @@ M.mappings = function(bufnr)
 
   vim.keymap.set(
     'n',
-    '<Space>wa',
+    '<localleader>wa',
     vim.lsp.buf.add_workspace_folder,
     { desc = 'Add folder to workspace folders', buffer = bufnr }
   )
 
   vim.keymap.set(
     'n',
-    '<Space>wr',
+    '<localleader>wr',
     vim.lsp.buf.remove_workspace_folder,
     { desc = 'Remove folder from workspace folders', buffer = bufnr }
   )
 
   vim.keymap.set(
     'n',
-    '<Space>wl',
+    '<localleader>wl',
     function() vim.print(vim.lsp.buf.list_workspace_folders()) end,
     { desc = 'List workspace windows', buffer = bufnr }
   )
 
   vim.keymap.set(
     'n',
-    '<Space>D',
+    '<localleader>d',
     vim.lsp.buf.type_definition,
     { desc = 'Jump to type definition', buffer = bufnr }
   )
 
   vim.keymap.set(
     'n',
-    '<Space>rn',
+    '<localleader>rn',
     vim.lsp.buf.rename,
     { desc = 'Rename all references to symbol', buffer = bufnr }
   )
 
   vim.keymap.set(
     'n',
-    '<Space>ca',
-    vim.lsp.buf.code_action,
+    '<localleader>ca',
+    function() vim.lsp.buf.code_action { triggerKind = 1 } end,
     { desc = 'Select an available code action', buffer = bufnr }
   )
 
