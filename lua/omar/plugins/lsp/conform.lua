@@ -37,6 +37,7 @@ return {
         go = { 'golines', 'goimports-reviser' },
         cpp = { 'clang-format' },
         java = { 'google-java-format' },
+        rust = { 'rustfmt', lsp_format = 'fallback' },
       },
     },
     config = function(_, opts)
