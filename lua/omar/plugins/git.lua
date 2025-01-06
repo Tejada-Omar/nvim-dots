@@ -1,3 +1,12 @@
+local diff_move = function(dir, preview)
+  if vim.wo.diff then
+    local cmd_dir = dir == 'next' and ']c' or '[c'
+    vim.cmd.normal { cmd_dir, band = true }
+  else
+    require('gitsigns').nav_hunk(dir, { preview = preview })
+  end
+end
+
 return {
   {
     'lewis6991/gitsigns.nvim',
@@ -12,90 +21,76 @@ return {
     keys = {
       {
         ']c',
-        function()
-          if vim.wo.diff then
-            vim.cmd.normal { ']c', bang = true }
-          else
-            require('gitsigns').nav_hunk('next', { preview = true })
-          end
-        end,
+        function() diff_move('next', false) end,
         desc = 'Move to next diff hunk',
-        buffer = 0,
       },
       {
         '[c',
-        function()
-          if vim.wo.diff then
-            vim.cmd.normal { '[c', bang = true }
-          else
-            require('gitsigns').nav_hunk('prev', { preview = true })
-          end
-        end,
+        function() diff_move('prev', false) end,
         desc = 'Move to prev diff hunk',
-        buffer = 0,
+      },
+      {
+        ']C',
+        function() diff_move('next', true) end,
+        desc = 'Move to next diff hunk',
+      },
+      {
+        '[C',
+        function() diff_move('prev', true) end,
+        desc = 'Move to prev diff hunk',
       },
       {
         '<leader>gs',
         '<CMD>Gitsigns stage_hunk<CR>',
         mode = { 'n', 'v' },
         desc = 'Stage hunk',
-        buffer = 0,
       },
       {
         '<leader>gr',
         '<CMD>Gitsigns reset_hunk<CR>',
         mode = { 'n', 'v' },
         desc = 'Reset hunk',
-        buffer = 0,
       },
       {
         '<leader>gS',
         '<CMD>Gitsigns stage_buffer<CR>',
         desc = 'Stage entire buffer',
-        buffer = 0,
       },
       {
         '<leader>gu',
         '<CMD>Gitsigns undo_stage_hunk<CR>',
         desc = 'Undo stage hunk',
-        buffer = 0,
       },
       {
         '<leader>gR',
         '<CMD>Gitsigns reset_buffer<CR>',
         desc = 'Reset entire buffer',
-        buffer = 0,
       },
       {
         '<leader>gp',
         '<CMD>Gitsigns preview_hunk<CR>',
         desc = 'Preview hunk',
-        buffer = 0,
       },
       {
         '<leader>gb',
         function() require('gitsigns').blame_line { full = true } end,
         desc = 'Blame line',
-        buffer = 0,
       },
       {
         '<leader>gtb',
         '<CMD>Gitsigns toggle_current_line_blame<CR>',
         desc = 'Toggle current line blame',
-        buffer = 0,
       },
       {
         '<leader>gtd',
         '<CMD>Gitsigns toggle_deleted<CR>',
         desc = 'Toggle deleted code',
-        buffer = 0,
       },
       {
         'ih',
         '<CMD>Gitsigns select_hunk<CR>',
         mode = { 'o', 'x' },
         desc = 'Select hunk',
-        buffer = 0,
       },
     },
   },
