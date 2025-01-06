@@ -63,13 +63,18 @@ return {
         desc = 'Live-grep files',
       },
       {
-        '<leader>fj',
+        '<leader>fG',
         function()
           require('telescope.builtin').live_grep {
             grep_open_files = true,
           }
         end,
         desc = 'Live-grep open files',
+      },
+      {
+        '<leader>fj',
+        function() require('telescope.builtin').jumplist() end,
+        desc = 'Fuzzy-find jumplist',
       },
       {
         '<leader>fb',
@@ -109,6 +114,16 @@ return {
         '<leader>fc',
         '<CMD>Telescope command_history<CR>',
         desc = 'Fuzzy-find command history',
+      },
+      {
+        '<leader>fw',
+        function() require('telescope.builtin').lsp_document_symbols() end,
+        desc = 'Find LSP document symbols',
+      },
+      {
+        '<leader>fW',
+        function() require('telescope.builtin').lsp_dynamic_workspace_symbols() end,
+        desc = 'Find LSP workspace symbols',
       },
     },
     config = true,
