@@ -12,8 +12,8 @@ return {
       vim.g.vimtex_indent_on_ampersands = 0
 
       vim.g['vimtex_compiler_latexmk'] = {
-        build_dir = 'latex-bin',
-        out_dir = 'latex-bin',
+        build_dir = 'build',
+        out_dir = 'build/bin',
       }
 
       vim.g['vimtex_compiler_latexmk_engines'] = {
