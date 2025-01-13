@@ -2,6 +2,9 @@ return {
   {
     'lervag/vimtex',
     ft = { 'tex' },
+    dependencies = {
+      { 'micangl/cmp-vimtex' },
+    },
     init = function()
       vim.g.vimtex_view_method = 'zathura'
       vim.g.vimtex_view_use_temp_files = 1
@@ -62,15 +65,6 @@ call vimtex#imaps#add_map({
       \ 'context' : [ 'itemize', 'enumerate', 'description' ],
       \})
 ]])
-    end,
-  },
-  {
-    'micangl/cmp-vimtex',
-    dependencies = 'hrsh7th/nvim-cmp',
-    opts = function()
-      require('cmp').setup.filetype('tex', {
-        sources = { { name = 'vimtex' } },
-      })
     end,
   },
 }

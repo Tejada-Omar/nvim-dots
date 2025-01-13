@@ -9,13 +9,4 @@ return {
     },
   },
   { 'Bilal2453/luvit-meta', lazy = true },
-  {
-    'hrsh7th/nvim-cmp',
-    optional = true,
-    opts = function()
-      require('cmp').setup.filetype('lua', {
-        sources = { { name = 'lazydev', group_index = 0 } },
-      })
-    end,
-  },
 }

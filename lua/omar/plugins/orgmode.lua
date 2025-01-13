@@ -50,13 +50,4 @@ return {
       },
     },
   },
-  {
-    'hrsh7th/nvim-cmp',
-    opts = function()
-      require('cmp').setup.filetype(
-        { 'orgmode' },
-        { sources = { name = 'orgmode' } }
-      )
-    end,
-  },
 }

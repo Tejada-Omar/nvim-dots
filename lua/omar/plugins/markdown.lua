@@ -3,14 +3,6 @@ return {
     'jakewvincent/mkdnflow.nvim',
     main = 'mkdnflow',
     ft = 'markdown',
-    dependencies = {
-      'hrsh7th/nvim-cmp',
-      opts = function()
-        require('cmp').setup.filetype('markdown', {
-          sources = { { name = 'mkdnflow' } },
-        })
-      end,
-    },
     opts = {
       modules = {
         foldtext = false,

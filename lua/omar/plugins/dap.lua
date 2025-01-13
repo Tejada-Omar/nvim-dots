@@ -1,6 +1,7 @@
 return {
   {
     'mfussenegger/nvim-dap',
+    dependencies = { { 'rcarriga/cmp-dap' } },
     build = ':helptags ALL',
     cond = vim.g.lsp_enabled,
     keys = {
@@ -102,22 +103,5 @@ return {
     ft = 'go',
     config = true,
     cond = vim.g.lsp_enabled,
-  },
-  {
-    'rcarriga/cmp-dap',
-    event = 'InsertEnter',
-    cond = vim.g.lsp_enabled,
-    dependencies = {
-      'hrsh7th/nvim-cmp',
-      optional = true,
-      opts = function()
-        local cmp = require('cmp')
-        cmp.setup.filetype({ 'dap-repl', 'dapui_watches', 'dapui_hover' }, {
-          sources = {
-            { name = 'dap' },
-          },
-        })
-      end,
-    },
   },
 }

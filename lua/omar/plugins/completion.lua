@@ -8,30 +8,45 @@ return {
       'windwp/nvim-autopairs',
       { 'hrsh7th/cmp-nvim-lsp', cond = vim.g.lsp_enabled },
       { 'hrsh7th/cmp-nvim-lsp-signature-help', cond = vim.g.lsp_enabled },
+      'hrsh7th/cmp-buffer',
+      'petertriho/cmp-git',
     },
-    opts = function(_, opts)
+    opts = function()
       local cmp = require('cmp')
 
-      opts.sources = opts.sources or {}
-      table.insert(opts.sources, 1, { name = 'luasnip' })
+      local sources = cmp.config.sources({
+        { name = 'lazydev' },
+        { name = 'luasnip' },
+      }, {
+        { name = 'nvim_lsp' },
+        { name = 'nvim_lsp_signature_help' },
+        { name = 'vimtex' },
+        { name = 'orgmode' },
+        { name = 'mkdnflow' },
+      }, {
+        { name = 'buffer' },
+      })
 
-      if vim.g.lsp_enabled then
-        vim.list_extend(opts.sources, {
-          { name = 'nvim_lsp' },
-          { name = 'nvim_lsp_signature_help' },
-        })
-      end
-
-      require('cmp').event:on(
+      cmp.event:on(
         'confirm_done',
         require('nvim-autopairs.completion.cmp').on_confirm_done()
+      )
+
+      cmp.setup.filetype(
+        { 'gitcommit', 'octo', 'NeogitCommitMessage' }, -- Defaults from source
+        { { name = 'git' }, { name = 'luasnip' }, { name = 'buffer' } }
+      )
+
+      cmp.setup.filetype(
+        { 'dap-repl', 'dapui_watches', 'dapui_hover' },
+        { { name = 'dap' } }
       )
 
       return {
         snippet = {
           expand = function(args) require('luasnip').lsp_expand(args.body) end,
         },
-        sources = opts.sources,
+        sources = sources,
         preselect = 'none',
         mapping = {
           ['<C-space'] = function()
