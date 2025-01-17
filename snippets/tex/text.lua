@@ -43,7 +43,7 @@ return {
       [[
       \begin{figure}<>
         \centering
-        \includegraphic[width=0.<>\linewidth]{<>}
+        \includegraphics[width=0.<>\linewidth]{<>}
         \caption{<>}
       \end{figure}
       ]],
