@@ -49,7 +49,7 @@ return {
         sources = sources,
         preselect = 'none',
         mapping = {
-          ['<C-space'] = function()
+          ['<C-space>'] = function()
             if cmp.visible_docs() then
               cmp.close_docs()
             else
