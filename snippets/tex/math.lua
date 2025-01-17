@@ -19,6 +19,20 @@ return {}, {
     show_condition = in_mathzone,
   }, fmta('\\{ <> \\}', i(1))),
 
+  s(
+    {
+      trig = ';sl',
+      desc = 'Create math list',
+      condition = in_mathzone,
+      show_condition = in_mathzone,
+    },
+    fmta('<>_1, \\dots, <>_<>', {
+      i(1, 'x'),
+      rep(1),
+      i(2, 'n'),
+    })
+  ),
+
   s({
     trig = ';f',
     desc = 'Create fraction',
@@ -48,7 +62,7 @@ return {}, {
     desc = 'Create inline equation',
     condition = in_text,
     show_condition = in_text,
-  }, fmt('${}$', { i(0) })),
+  }, fmt('${}${}', { i(1), i(0) })),
 
   s(
     {

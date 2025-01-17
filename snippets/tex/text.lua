@@ -4,6 +4,17 @@ local in_mathzone = function() return vim.fn['vimtex#syntax#in_mathzone']() == 1
 local in_text = function() return vim.fn['vimtex#syntax#in_mathzone']() == 0 end
 
 ---@diagnostic disable undefined-global
+local insert_env_option = function(name)
+  return fmta(
+    [[
+    \begin{<>}[<>]
+      <>
+    \end{<>}
+    ]],
+    { t(name), i(1), i(0), t(name) }
+  )
+end
+
 local table_node = function(args)
   local tabs = {}
   local count
@@ -89,7 +100,7 @@ return {
       ]],
       {
         i(1, 'cc'),
-        i(2)
+        i(2),
       }
     )
   ),
@@ -99,7 +110,20 @@ return {
     desc = 'Enter an inline TODO',
     condition = in_text,
     show_condition = in_text,
-  }, fmta('\\todo[inline]{<>}', i(0))),
+  }, fmta('\\todo<>{<>}<>', { c(2, { t(''), t('[inline]') }), i(1), i(0) })),
+
+  s(
+    {
+      trig = 'margin',
+      desc = 'Create a note in the margin',
+      condition = in_text,
+      show_condition = in_text,
+    },
+    fmta(
+      '\\marginnote{<>}<>',
+      { i(1), c(2, { t(''), t('[1cm]'), t('[-1cm]') }) }
+    )
+  ),
 
   s({
     trig = 'subfile',
@@ -107,9 +131,9 @@ return {
     condition = in_text,
     show_condition = in_text,
   }, {
-    t { '\\documentclass[master.tex]{subfiles}', '\\begin{document}', '' },
-    i(0, ''),
-    t { '', '\\end{document}' },
+    t { '\\documentclass[master.tex]{subfiles}', '\\begin{document}', '', '' },
+    i(0),
+    t { '', '', '\\end{document}' },
   }),
 
   s(
@@ -124,6 +148,20 @@ return {
       i(1),
     })
   ),
+
+  s({
+    trig = 'bold',
+    desc = 'Create bold text',
+    condition = in_text,
+    show_condition = in_text,
+  }, fmta('\\textbf{<>}<>', { i(1), i(0) })),
+
+  s({
+    trig = 'italic',
+    desc = 'Create italic text',
+    condition = in_text,
+    show_condition = in_text,
+  }, fmta('\\textit{<>}<>', { i(1), i(0) })),
 }, {
   s(
     {
@@ -141,4 +179,53 @@ return {
       { c(1, { t('itemize'), t('enumerate'), t('description') }), i(0), rep(1) }
     )
   ),
+
+  s({
+    trig = ';dd',
+    desc = 'Create new definition',
+    condition = in_text,
+    show_condition = in_text,
+  }, insert_env_option('definition')),
+
+  s({
+    trig = ';dt',
+    desc = 'Create new theorem',
+    condition = in_text,
+    show_condition = in_text,
+  }, insert_env_option('theorem')),
+
+  s({
+    trig = ';dl',
+    desc = 'Create new lemma',
+    condition = in_text,
+    show_condition = in_text,
+  }, insert_env_option('lemma')),
+
+  s({
+    trig = ';dc',
+    desc = 'Create new corollary',
+    condition = in_text,
+    show_condition = in_text,
+  }, insert_env_option('corollary')),
+
+  s({
+    trig = ';dp',
+    desc = 'Create new proposition',
+    condition = in_text,
+    show_condition = in_text,
+  }, insert_env_option('proposition')),
+
+  s({
+    trig = ';de',
+    desc = 'Create new example',
+    condition = in_text,
+    show_condition = in_text,
+  }, insert_env_option('example')),
+
+  s({
+    trig = ';dn',
+    desc = 'Create new note',
+    condition = in_text,
+    show_condition = in_text,
+  }, insert_env_option('note')),
 }
