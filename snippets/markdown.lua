@@ -22,4 +22,19 @@ return {
       date = f(function() return os.date('%A, %B %-d, %Y') end),
     })
   ),
+}, {
+  s({
+    trig = ';l',
+    desc = 'Insert link',
+  }, fmt('[{}]({})', { i(1), i(2) })),
+
+  s({
+    trig = ';mb',
+    desc = 'Create bold text',
+  }, fmt('**{}**{}', { i(1), i(0) })),
+
+  s({
+    trig = ';mi',
+    desc = 'Create italic text',
+  }, fmt('*{}*{}', { i(1), i(0) })),
 }
