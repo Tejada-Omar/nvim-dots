@@ -12,7 +12,7 @@ vim.o.foldlevelstart = 5
 vim.o.expandtab = true
 vim.o.tabstop = 2
 vim.o.softtabstop = -1
-vim.o.shiftwidth = 2
+vim.o.shiftwidth = 0
 
 vim.o.textwidth = 80
 vim.o.cc = '81'
