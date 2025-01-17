@@ -66,5 +66,12 @@ call vimtex#imaps#add_map({
       \})
 ]])
     end,
+    keys = {
+      {
+        '<localleader>lS',
+        '<Plug>(vimtex-compile-ss)',
+        desc = 'vimtex-compile-ss)',
+      },
+    },
   },
 }
