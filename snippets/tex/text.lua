@@ -4,14 +4,18 @@ local in_mathzone = function() return vim.fn['vimtex#syntax#in_mathzone']() == 1
 local in_text = function() return vim.fn['vimtex#syntax#in_mathzone']() == 0 end
 
 ---@diagnostic disable undefined-global
-local insert_env_option = function(name)
+local insert_env_option = function(name, show_option)
+  local tex_opt = sn(nil, { t('['), i(1), t(']') })
+  local choice =  show_option == true and { tex_opt, t('') }
+    or { t(''), tex_opt }
+
   return fmta(
     [[
-    \begin{<>}[<>]
+    \begin{<>}<>
       <>
     \end{<>}
     ]],
-    { t(name), i(1), i(0), t(name) }
+    { t(name), c(1, choice), i(0), t(name) }
   )
 end
 
@@ -185,47 +189,61 @@ return {
     desc = 'Create new definition',
     condition = in_text,
     show_condition = in_text,
-  }, insert_env_option('definition')),
+  }, insert_env_option('definition', true)),
 
   s({
     trig = ';dt',
     desc = 'Create new theorem',
     condition = in_text,
     show_condition = in_text,
-  }, insert_env_option('theorem')),
+  }, insert_env_option('theorem', true)),
 
   s({
     trig = ';dl',
     desc = 'Create new lemma',
     condition = in_text,
     show_condition = in_text,
-  }, insert_env_option('lemma')),
+  }, insert_env_option('lemma', false)),
 
   s({
     trig = ';dc',
     desc = 'Create new corollary',
     condition = in_text,
     show_condition = in_text,
-  }, insert_env_option('corollary')),
+  }, insert_env_option('corollary', false)),
 
   s({
-    trig = ';dp',
+    trig = ';do',
     desc = 'Create new proposition',
     condition = in_text,
     show_condition = in_text,
-  }, insert_env_option('proposition')),
+  }, insert_env_option('proposition', false)),
 
   s({
     trig = ';de',
     desc = 'Create new example',
     condition = in_text,
     show_condition = in_text,
-  }, insert_env_option('example')),
+  }, insert_env_option('example', false)),
 
   s({
     trig = ';dn',
     desc = 'Create new note',
     condition = in_text,
     show_condition = in_text,
-  }, insert_env_option('note')),
+  }, insert_env_option('note', false)),
+
+  s({
+    trig = ';dp',
+    desc = 'Create new proof',
+    condition = in_text,
+    show_condition = in_text,
+  }, insert_env_option('proof', false)),
+
+  s({
+    trig = ';dP',
+    desc = 'Create new subproof',
+    condition = in_text,
+    show_condition = in_text,
+  }, insert_env_option('subproof', false)),
 }
