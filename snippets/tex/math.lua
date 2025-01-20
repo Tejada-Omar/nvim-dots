@@ -19,6 +19,20 @@ return {}, {
     show_condition = in_mathzone,
   }, fmta('\\{ <> \\}', i(1))),
 
+  s({
+    trig = ';rv',
+    desc = 'Insert \\vdash',
+    condition = in_mathzone,
+    show_condition = in_mathzone,
+  }, t('\\vdash')),
+
+  s({
+    trig = ';rV',
+    desc = 'Insert \\vDash',
+    condition = in_mathzone,
+    show_condition = in_mathzone,
+  }, t('\\vDash')),
+
   s(
     {
       trig = ';sl',
