@@ -31,14 +31,6 @@ return {
         preview = {
           treesitter = false,
         },
-        extensions = {
-          fzf = {
-            fuzzy = true,
-            override_generic_sorter = true,
-            override_file_sorter = true,
-            case_mode = 'smart_case',
-          },
-        },
       },
       pickers = {
         live_grep = {
@@ -131,65 +123,20 @@ return {
       {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make',
-        config = function() require('telescope').load_extension('fzf') end,
-      },
-      {
-        'olimorris/persisted.nvim',
-        lazy = false,
-        priority = 60,
         opts = {
-          use_git_branch = true,
-          default_branch = 'master',
-          autoload = false,
-          ignored_dirs = {
-            { '/tmp', exact = true },
+          extensions = {
+            fzf = {
+              fuzzy = true,
+              override_generic_sorter = true,
+              override_file_sorter = true,
+              case_mode = 'smart_case',
+            },
           },
-          should_autosave = function()
-            if vim.bo.filetype == 'oil' then return false end
-            if vim.bo.filetype == 'gitcommit' then return false end
-
-            return true
-          end,
         },
         config = function(_, opts)
-          require('persisted').setup(opts)
-          require('telescope').load_extension('persisted')
-
-          local group = vim.api.nvim_create_augroup('PersistedHooks', {})
-
-          vim.api.nvim_create_autocmd({ 'User' }, {
-            pattern = 'PersistedTelescopeLoadPre',
-            group = group,
-            callback = function(_)
-              -- Save the currently loaded session using a global variable
-              require('persisted').save {
-                session = vim.g.persisted_loaded_session,
-              }
-
-              -- Delete all of the open buffers
-              vim.api.nvim_input('<ESC>:%bd!<CR>')
-            end,
-          })
-
-          vim.api.nvim_create_autocmd('User', {
-            pattern = 'PersistedSavePre',
-            callback = function()
-              for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-                local ft = vim.bo[buf].filetype
-                if ft == 'oil' or ft == 'gitcommit' then
-                  vim.api.nvim_buf_delete(buf, { force = true })
-                end
-              end
-            end,
-          })
+          require('telescope').setup(opts)
+          require('telescope').load_extension('fzf')
         end,
-        keys = {
-          {
-            '<leader>fs',
-            '<CMD>Telescope persisted<CR>',
-            desc = 'Fuzzy-find sessions',
-          },
-        },
       },
     },
   },
@@ -207,5 +154,63 @@ return {
       require('telescope').setup(opts)
       require('telescope').load_extension('undo')
     end,
+  },
+  {
+    'olimorris/persisted.nvim',
+    lazy = false,
+    priority = 60,
+    opts = {
+      use_git_branch = true,
+      default_branch = 'master',
+      autoload = false,
+      ignored_dirs = {
+        { '/tmp', exact = true },
+      },
+      should_autosave = function()
+        if vim.bo.filetype == 'oil' then return false end
+        if vim.bo.filetype == 'gitcommit' then return false end
+
+        return true
+      end,
+    },
+    config = function(_, opts)
+      require('persisted').setup(opts)
+      require('telescope').load_extension('persisted')
+
+      local group = vim.api.nvim_create_augroup('PersistedHooks', {})
+
+      vim.api.nvim_create_autocmd({ 'User' }, {
+        pattern = 'PersistedTelescopeLoadPre',
+        group = group,
+        callback = function(_)
+          -- Save the currently loaded session using a global variable
+          require('persisted').save {
+            session = vim.g.persisted_loaded_session,
+          }
+
+          -- Delete all of the open buffers
+          vim.api.nvim_input('<ESC>:%bd!<CR>')
+        end,
+      })
+
+      vim.api.nvim_create_autocmd('User', {
+        pattern = 'PersistedSavePre',
+        callback = function()
+          for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+            local ft = vim.bo[buf].filetype
+            if ft == 'oil' or ft == 'gitcommit' then
+              vim.api.nvim_buf_delete(buf, { force = true })
+            end
+          end
+        end,
+      })
+    end,
+    keys = {
+      {
+        '<leader>fs',
+        '<CMD>Telescope persisted<CR>',
+        desc = 'Fuzzy-find sessions',
+      },
+    },
   },
 }
