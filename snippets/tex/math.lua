@@ -63,9 +63,9 @@ return {}, {
     },
     fmta(
       [[
-  \begin{equation}
+  \begin{equation*}
     <>
-  \end{equation}
+  \end{equation*}
   ]],
       { i(0) }
     )
@@ -87,9 +87,9 @@ return {}, {
     },
     fmta(
       [[
-  \begin{align}
+  \begin{align*}
     <>
-  \end{align}
+  \end{align*}
   ]],
       { i(0) }
     )
