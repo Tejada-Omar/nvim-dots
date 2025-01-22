@@ -70,6 +70,7 @@ call vimtex#imaps#add_map({
       {
         '<localleader>lS',
         '<Plug>(vimtex-compile-ss)',
+        ft = 'tex',
         desc = 'vimtex-compile-ss)',
       },
     },
