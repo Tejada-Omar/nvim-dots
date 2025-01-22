@@ -51,12 +51,6 @@ return {}, {
   }, { d(1, dynamic_postfix, {}, { user_args = { '\\vec{', '}' } }) }),
 
   postfix({
-    trig = 'dot',
-    condition = in_mathzone,
-    show_condition = in_mathzone,
-  }, { d(1, dynamic_postfix, {}, { user_args = { '\\dot{', '}' } }) }),
-
-  postfix({
     trig = 'bar',
     condition = in_mathzone,
     show_condition = in_mathzone,
