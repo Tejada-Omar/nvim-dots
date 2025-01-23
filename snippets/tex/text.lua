@@ -200,7 +200,7 @@ return {
     fmta(
       [[
       \begin{<>}
-        <>
+        \item <>
       \end{<>}
       ]],
       { c(1, { t('itemize'), t('enumerate'), t('description') }), i(0), rep(1) }
