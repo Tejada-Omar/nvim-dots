@@ -71,6 +71,29 @@ return {
     )
   ),
 
+  s(
+    {
+      trig = 'subfigure',
+      desc = 'Create subfigure',
+      condition = in_text,
+      show_condition = in_text,
+    },
+    fmta(
+      [[
+      \begin{subfigure}{0.<>\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{<>}
+        \caption{<>}
+      \end{subfigure}
+      ]],
+      {
+        i(1, '24'),
+        i(2),
+        i(3),
+      }
+    )
+  ),
+
   s({
     trig = 'table',
     desc = 'Create tabular table',
