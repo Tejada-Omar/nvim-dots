@@ -10,6 +10,7 @@ return {
         go = { 'golangcilint' },
         typescript = { 'eslint_d' },
         javascript = { 'eslint_d' },
+        cmake = { 'cmakelint' },
       }
     end,
   },

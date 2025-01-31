@@ -38,6 +38,7 @@ return {
         cpp = { 'clang-format' },
         java = { 'google-java-format' },
         rust = { 'rustfmt', lsp_format = 'fallback' },
+        cmake = { 'cmake_format' },
       },
     },
     config = function(_, opts)
