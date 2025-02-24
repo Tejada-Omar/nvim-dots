@@ -32,7 +32,7 @@ vim.g.maplocalleader = ' '
 require('lazy').setup({ import = 'omar/plugins' }, {
   lazy = true,
   dev = {
-    path = '~/Code/projects/neovim',
+    path = '~/Code/nvim',
     fallback = true,
   },
   change_detection = {
