@@ -150,4 +150,11 @@ return {}, {
       { i(0) }
     )
   ),
+
+  s({
+    trig = '#r',
+    desc = 'Create mathrm',
+    condition = in_mathzone,
+    show_condition = in_mathzone,
+  }, fmta('\\mathrm{<>}', { i(0) })),
 }
