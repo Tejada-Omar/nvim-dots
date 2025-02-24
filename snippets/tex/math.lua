@@ -127,6 +127,13 @@ return {}, {
     show_condition = in_text,
   }, fmt('${}${}', { i(1), i(0) })),
 
+  s({
+    trig = "'x",
+    desc = 'Insert XOR',
+    condition = in_mathzone,
+    show_condition = in_mathzone,
+  }, t('\\oplus')),
+
   s(
     {
       trig = ';wa',
