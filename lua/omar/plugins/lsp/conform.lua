@@ -11,6 +11,7 @@ return {
             filter = function(client) return client.name ~= 'ts_ls' end,
           }
         end,
+        mode = { 'n', 'v' },
         desc = 'Format buffer',
       },
     },
