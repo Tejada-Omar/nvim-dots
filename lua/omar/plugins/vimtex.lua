@@ -56,15 +56,19 @@ call vimtex#imaps#add_map({
       \})
 ]])
 
-      vim.cmd([[
-call vimtex#imaps#add_map({
-      \ 'lhs' : '<M-S-i>',
-      \ 'rhs' : '\item[',
-      \ 'leader'  : '',
-      \ 'wrapper' : 'vimtex#imaps#wrap_environment',
-      \ 'context' : [ 'itemize', 'enumerate', 'description' ],
-      \})
-]])
+      vim.fn['vimtex#imaps#add_map'] {
+        lhs = '<M-S-i>',
+        rhs = '\\item[',
+        leader = '',
+        wrapper = 'vimtex#imaps#wrap_environment',
+        context = {
+          {
+            envs = { 'itemize', 'enumerate' },
+            rhs = '\\litem{',
+          },
+          'description',
+        },
+      }
     end,
     keys = {
       {
