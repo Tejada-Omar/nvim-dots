@@ -17,7 +17,7 @@ return {}, {
     desc = 'Enter set',
     condition = in_mathzone,
     show_condition = in_mathzone,
-  }, fmta('\\{ <> \\}', i(1))),
+  }, fmta('\\{<>\\}', i(1))),
 
   s({
     trig = ';rv',
