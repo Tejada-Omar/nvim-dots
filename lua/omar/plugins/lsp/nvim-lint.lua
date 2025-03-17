@@ -11,6 +11,7 @@ return {
         typescript = { 'eslint_d' },
         javascript = { 'eslint_d' },
         cmake = { 'cmakelint' },
+        sql = { 'sqlfluff' },
       }
     end,
   },

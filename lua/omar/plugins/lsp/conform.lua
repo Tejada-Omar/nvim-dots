@@ -40,6 +40,7 @@ return {
         java = { 'google-java-format', lsp_format = 'prefer' },
         rust = { 'rustfmt', lsp_format = 'fallback' },
         cmake = { 'cmake_format' },
+        sql = { 'sqlfluff' },
       },
     },
     config = function(_, opts)
