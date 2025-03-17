@@ -35,7 +35,7 @@ return {
         lua = { 'stylua' },
         tex = { 'latexindent' },
         -- golines called regular goimports implicitly
-        go = { 'golines', 'goimports-reviser' },
+        go = { 'gofumpt', 'golines', 'goimports-reviser' },
         cpp = { 'clang-format' },
         java = { 'google-java-format' },
         rust = { 'rustfmt', lsp_format = 'fallback' },
