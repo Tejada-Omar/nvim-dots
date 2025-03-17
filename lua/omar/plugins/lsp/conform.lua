@@ -37,7 +37,7 @@ return {
         -- golines called regular goimports implicitly
         go = { 'gofumpt', 'golines', 'goimports-reviser' },
         cpp = { 'clang-format' },
-        java = { 'google-java-format' },
+        java = { 'google-java-format', lsp_format = 'prefer' },
         rust = { 'rustfmt', lsp_format = 'fallback' },
         cmake = { 'cmake_format' },
       },
