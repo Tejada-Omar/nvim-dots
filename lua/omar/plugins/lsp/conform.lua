@@ -41,6 +41,7 @@ return {
         rust = { 'rustfmt', lsp_format = 'fallback' },
         cmake = { 'cmake_format' },
         sql = { 'sqlfluff' },
+        dart = { 'dart_format' },
       },
     },
     config = function(_, opts)
