@@ -30,8 +30,12 @@ return {
     init = function()
       vim.cmd('let g:mkdp_echo_preview_url = 1')
       vim.cmd("let g:mkdp_theme = 'dark'")
+      vim.cmd("let g:mkdp_filetypes = ['markdown']")
     end,
-    build = function() vim.fn['mkdp#util#install']() end,
+    build = function()
+      vim.cmd('Lazy load markdown-preview.nvim')
+      vim.fn['mkdp#util#install']()
+    end,
     keys = {
       {
         '<C-s>',
