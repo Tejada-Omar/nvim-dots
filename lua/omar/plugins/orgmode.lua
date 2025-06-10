@@ -47,9 +47,37 @@ return {
     dependencies = {
       {
         'nvim-treesitter/nvim-treesitter',
-        opts = {
-          ignore_install = { 'org' },
-        },
+        opts = { ignore_install = { 'org' } },
+      },
+    },
+  },
+  {
+    'nvim-orgmode/telescope-orgmode.nvim',
+    event = 'VeryLazy',
+    dependencies = {
+      'nvim-orgmode/orgmode',
+      'nvim-telescope/telescope.nvim',
+    },
+    config = function() require('telescope').load_extension('orgmode') end,
+    keys = {
+      {
+        '<leader>fq',
+        '<CMD>Telescope orgmode search_headings<CR>',
+        desc = 'Find orgmode headings',
+      },
+      {
+        '<leader>fQ',
+        '<CMD>Telescope orgmode refile_heading<CR>',
+        desc = 'Refile orgmode headings',
+      },
+      {
+        '<leader>fF',
+        function()
+          require('telescope').extensions.orgmode.search_headings {
+            mode = 'orgfiles',
+          }
+        end,
+        desc = 'Find orgmode headings',
       },
     },
   },
