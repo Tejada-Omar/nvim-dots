@@ -60,6 +60,30 @@ return {
             ['<leader>A'] = '@parameter.inner',
           },
         },
+        move = {
+          enable = true,
+          set_jumps = true,
+          goto_next_start = {
+            [']m'] = '@function.outer',
+            [']]'] = '@class.outer',
+            [']/'] = '@comment.outer',
+          },
+          goto_next_end = {
+            [']M'] = '@function.outer',
+            [']['] = '@class.outer',
+            [']?'] = '@comment.outer',
+          },
+          goto_previous_start = {
+            ['[m'] = '@function.outer',
+            ['[['] = '@class.outer',
+            [']/'] = '@comment.outer',
+          },
+          goto_previous_end = {
+            ['[M'] = '@function.outer',
+            ['[]'] = '@class.outer',
+            ['[?'] = '@comment.outer',
+          },
+        },
       },
     },
     config = function(_, opts) require('nvim-treesitter.configs').setup(opts) end,
