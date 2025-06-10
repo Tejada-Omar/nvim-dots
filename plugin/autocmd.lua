@@ -24,3 +24,16 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
     vim.wo[winid][0].list = false
   end,
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'org',
+  -- command = "noremap <buffer> <M-CR> <CMD>lua require('orgmode').action('org_mappings.meta_return')<CR>",
+  callback = function(_)
+    vim.keymap.set(
+      { 'n', 'i' },
+      '<M-CR>',
+      function() require('orgmode').action('org_mappings.meta_return') end,
+      { desc = 'Org meta-mapping', buffer = true }
+    )
+  end,
+})
