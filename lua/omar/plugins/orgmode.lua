@@ -3,7 +3,6 @@ local homedir = '~/Documents/org/'
 return {
   {
     'nvim-orgmode/orgmode',
-    event = 'VeryLazy',
     ft = { 'org' },
     opts = {
       org_agenda_files = { '~/Documents/org/**/*' },
@@ -53,7 +52,6 @@ return {
   },
   {
     'nvim-orgmode/telescope-orgmode.nvim',
-    event = 'VeryLazy',
     dependencies = {
       'nvim-orgmode/orgmode',
       'nvim-telescope/telescope.nvim',
