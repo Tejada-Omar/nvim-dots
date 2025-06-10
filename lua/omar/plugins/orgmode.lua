@@ -40,6 +40,9 @@ return {
           headline = 'Inbox',
         },
       },
+      mappings = {
+        prefix = '<localleader>',
+      },
     },
     dependencies = {
       {
