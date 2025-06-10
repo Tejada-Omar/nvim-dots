@@ -12,6 +12,7 @@ return {
         javascript = { 'eslint_d' },
         cmake = { 'cmakelint' },
         sql = { 'sqlfluff' },
+        rust = { 'clippy' },
       }
     end,
   },
