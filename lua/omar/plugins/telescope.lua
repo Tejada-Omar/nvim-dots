@@ -27,6 +27,7 @@ return {
           '%.zip',
           '%.gz',
           '%.tar',
+          '%.git/',
         },
         preview = {
           treesitter = false,
@@ -35,6 +36,7 @@ return {
       pickers = {
         live_grep = {
           grep_open_files = false,
+          glob_pattern = { '!*[-.]lock' },
         },
       },
     },
