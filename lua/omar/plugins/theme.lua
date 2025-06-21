@@ -33,7 +33,6 @@ return {
   },
   {
     'mcauley-penney/tidy.nvim',
-    dev = true,
     event = 'BufWrite',
     config = true,
   },
