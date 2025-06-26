@@ -9,7 +9,7 @@ return {
       require('nvim-autopairs').setup(opts)
 
       local npairs = require('nvim-autopairs')
-      npairs.get_rules("'")[1].not_filetypes = { 'tex' }
+      npairs.get_rules("'")[1].not_filetypes = { 'tex', 'rust' }
     end,
   },
 }
