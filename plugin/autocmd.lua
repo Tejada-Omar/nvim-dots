@@ -37,3 +37,9 @@ vim.api.nvim_create_autocmd('FileType', {
     )
   end,
 })
+
+vim.api.nvim_create_autocmd('VimLeavePre', {
+  callback = function(_)
+    vim.iter(vim.lsp.get_clients()):each(function(c) c:stop() end)
+  end,
+})
