@@ -16,6 +16,7 @@ return {
       numhl = true,
       current_line_blame_opts = {
         ignore_whitespace = true,
+        virt_text_pos = 'right_align',
       },
     },
     keys = {
