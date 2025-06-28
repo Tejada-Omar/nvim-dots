@@ -32,11 +32,6 @@ return {
     },
   },
   {
-    'mcauley-penney/tidy.nvim',
-    event = 'BufWrite',
-    config = true,
-  },
-  {
     'folke/which-key.nvim',
     event = 'UIEnter',
     opts = {

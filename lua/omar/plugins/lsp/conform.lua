@@ -43,6 +43,7 @@ return {
         cmake = { 'cmake_format' },
         sql = { 'sqlfluff' },
         dart = { 'dart_format' },
+        ['_'] = { 'trim_newlines', 'trim_whitespace' },
       },
     },
     config = function(_, opts)
