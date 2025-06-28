@@ -83,7 +83,7 @@ return {
       },
       {
         '<leader>gtd',
-        '<CMD>Gitsigns toggle_deleted<CR>',
+        '<CMD>Gitsigns preview_hunk_inline<CR>',
         desc = 'Toggle deleted code',
       },
       {
