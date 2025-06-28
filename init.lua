@@ -15,8 +15,10 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.fancy_living = vim.fn.has('termguicolors') == 1
 vim.g.lsp_enabled = true
-if os.getenv('NVIM_LSP_ENABLED') ~= 'true' then
-  vim.g.lsp_enabled = false
+if os.getenv('NVIM_LSP_ENABLED') ~= 'true' then vim.g.lsp_enabled = false end
+vim.g.autoformat_enabled = true
+if os.getenv('NVIM_AUTOFORMAT_ENABLED') ~= 'true' then
+  vim.g.autoformat_enabled = false
 end
 
 local colorscheme = 'rose-pine'

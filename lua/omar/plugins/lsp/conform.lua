@@ -45,6 +45,14 @@ return {
         dart = { 'dart_format' },
         ['_'] = { 'trim_newlines', 'trim_whitespace' },
       },
+      format_on_save = function(bufnr)
+        if
+          not (vim.g.autoformat_enabled or vim.b[bufnr].autoformat_enabled)
+        then
+          return
+        end
+        return { timeout_ms = 500 }
+      end,
     },
     config = function(_, opts)
       local conform = require('conform')
