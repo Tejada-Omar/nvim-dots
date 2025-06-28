@@ -1,7 +1,7 @@
 local diff_move = function(dir, preview)
   if vim.wo.diff then
     local cmd_dir = dir == 'next' and ']c' or '[c'
-    vim.cmd.normal { cmd_dir, band = true }
+    vim.cmd.normal { cmd_dir, bang = true }
   else
     require('gitsigns').nav_hunk(dir, { preview = preview })
   end
