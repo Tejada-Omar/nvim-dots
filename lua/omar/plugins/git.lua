@@ -97,12 +97,11 @@ return {
   },
   {
     'NeogitOrg/neogit',
-    enabled = false,
     event = 'VeryLazy',
     keys = {
       { '<leader>gg', '<CMD>Neogit<CR>', desc = 'Open Neogit' },
       {
-        '<leader>gs',
+        '<leader>gG',
         '<CMD>Neogit kind=auto<CR>',
         desc = 'Open Neogit in split',
       },
@@ -112,26 +111,29 @@ return {
         kind = 'replace',
         staged_diff_split_kind = 'auto',
       },
+      integrations = {
+        snacks = false
+      }
     },
     dependencies = {
-      {
-        'sindrets/diffview.nvim',
-        opts = {
-          enhanced_diff_hl = true,
-        },
-        keys = {
-          { '<leader>hd', '<CMD>DiffviewOpen<CR>', desc = 'Open diffview' },
-        },
-      },
+      {'sindrets/diffview.nvim', optional = true},
       'nvim-telescope/telescope.nvim',
     },
   },
   {
     'tpope/vim-fugitive',
+    enabled = false,
     lazy = false,
     dependencies = { 'tpope/vim-rhubarb', 'shumphrey/fugitive-gitlab.vim' },
     keys = {
       { '<leader>gg', '<CMD>Git<CR>', desc = 'Open Git' },
+    },
+  },
+  {
+    'sindrets/diffview.nvim',
+    opts = { enhanced_diff_hl = true },
+    keys = {
+      { '<leader>gd', '<CMD>DiffviewOpen<CR>', desc = 'Open diffview' },
     },
   },
 }
