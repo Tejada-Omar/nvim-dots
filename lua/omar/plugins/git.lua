@@ -10,7 +10,7 @@ end
 return {
   {
     'lewis6991/gitsigns.nvim',
-    event = 'UIEnter',
+    lazy = false,
     opts = {
       signcolumn = false,
       numhl = true,
