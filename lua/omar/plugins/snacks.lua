@@ -5,9 +5,9 @@ return {
     priority = 1000,
     opts = function()
       -- Toggle the profiler
-      Snacks.toggle.profiler():map('<leader>pp')
+      Snacks.toggle.profiler():map('<leader>tp')
       -- Toggle the profiler highlights
-      Snacks.toggle.profiler_highlights():map('<leader>ph')
+      Snacks.toggle.profiler_highlights():map('<leader>th')
 
       return {
         bigfile = { enabled = true },
@@ -19,17 +19,17 @@ return {
     end,
     keys = {
       {
-        '<leader>ps',
+        '<leader>ts',
         function() Snacks.profiler.scratch() end,
         desc = 'Profiler scratch buffer',
       },
       {
-        '<leader>zz',
+        '<leader>tz',
         function() require('snacks.zen').zen() end,
         desc = 'Toggle zen mode',
       },
       {
-        '<leader>zo',
+        '<leader>to',
         function() require('snacks.zen').zoom() end,
         desc = 'Toggle zoom mode',
       },
@@ -44,10 +44,10 @@ return {
           vim.print = _G.dd -- Override print to use snacks for `:=` command
 
           -- Create some toggle mappings
-          Snacks.toggle.diagnostics():map('<leader>ud')
-          Snacks.toggle.treesitter():map('<leader>uT')
-          Snacks.toggle.inlay_hints():map('<leader>uh')
-          Snacks.toggle.dim():map('<leader>uD')
+          Snacks.toggle.diagnostics():map('<leader>td')
+          Snacks.toggle.treesitter():map('<leader>tT')
+          Snacks.toggle.inlay_hints():map('<leader>ti')
+          Snacks.toggle.dim():map('<leader>tD')
         end,
       })
     end,
@@ -63,7 +63,7 @@ return {
     },
     keys = {
       {
-        '<leader>zn',
+        '<leader>tn',
         '<CMD>NoNeckPain<CR>',
         desc = 'Center buffer',
       },
