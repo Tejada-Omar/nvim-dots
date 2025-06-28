@@ -28,6 +28,7 @@ return {
           '%.gz',
           '%.tar',
           '%.git/',
+          '%.git',
         },
         preview = {
           treesitter = false,
