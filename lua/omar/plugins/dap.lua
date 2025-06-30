@@ -1,7 +1,6 @@
 return {
   {
     'mfussenegger/nvim-dap',
-    dependencies = { { 'rcarriga/cmp-dap' } },
     build = ':helptags ALL',
     cond = vim.g.lsp_enabled,
     keys = {
@@ -75,7 +74,6 @@ return {
   },
   {
     'rcarriga/nvim-dap-ui',
-    event = 'VeryLazy',
     cond = vim.g.lsp_enabled,
     dependencies = {
       'mfussenegger/nvim-dap',
@@ -92,11 +90,6 @@ return {
       local dapui = require('dapui')
       dapui.setup()
     end,
-  },
-  {
-    'LiadOz/nvim-dap-repl-highlights',
-    config = true,
-    cond = vim.g.lsp_enabled,
   },
   {
     'leoluz/nvim-dap-go',
