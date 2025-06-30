@@ -21,21 +21,21 @@ return {
           virtual_text = true, -- show the highlight using virtual text
           virtual_text_str = '■', -- the virtual text character to highlight
         },
-        on_attach = function (_, bufnr)
+        on_attach = function(_, bufnr)
           local utils = require('omar.plugins.lsp.utils.utils')
           utils.mappings(bufnr)
         end,
-        capabilities = require('cmp_nvim_lsp').default_capabilities(),
+        capabilities = require('blink.cmp').get_lsp_capabilities(),
         -- see the link below for details on each option:
         -- https://github.com/dart-lang/sdk/blob/master/pkg/analysis_server/tool/lsp_spec/README.md#client-workspace-configuration
-      --   settings = {
-      --     showTodos = true,
-      --     completeFunctionCalls = true,
-      --     analysisExcludedFolders = { '<path-to-flutter-sdk-packages>' },
-      --     renameFilesWithClasses = 'prompt', -- "always"
-      --     enableSnippets = true,
-      --     updateImportsOnRename = true, -- Whether to update imports and other directives when files are renamed. Required for `FlutterRename` command.
-      --   },
+        --   settings = {
+        --     showTodos = true,
+        --     completeFunctionCalls = true,
+        --     analysisExcludedFolders = { '<path-to-flutter-sdk-packages>' },
+        --     renameFilesWithClasses = 'prompt', -- "always"
+        --     enableSnippets = true,
+        --     updateImportsOnRename = true, -- Whether to update imports and other directives when files are renamed. Required for `FlutterRename` command.
+        --   },
       },
     },
   },

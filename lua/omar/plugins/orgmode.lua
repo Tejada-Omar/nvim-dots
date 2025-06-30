@@ -79,4 +79,19 @@ return {
       },
     },
   },
+  {
+    'saghen/blink.cmp',
+    optional = true,
+    opts = {
+      sources = {
+        default = { 'orgmode' },
+        providers = {
+          orgmode = {
+            name = 'orgmode',
+            module = 'orgmode.org.autocompletion.blink',
+          },
+        },
+      },
+    },
+  },
 }

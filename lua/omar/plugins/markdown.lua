@@ -44,4 +44,19 @@ return {
       },
     },
   },
+  {
+    'saghen/blink.cmp',
+    optional = true,
+    opts = {
+      sources = {
+        default = { 'mkdnflow' },
+        providers = {
+          mkdnflow = {
+            name = 'mkdnflow',
+            module = 'blink.compat.source',
+          },
+        },
+      },
+    },
+  },
 }

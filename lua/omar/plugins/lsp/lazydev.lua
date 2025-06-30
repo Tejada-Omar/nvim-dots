@@ -9,4 +9,20 @@ return {
     },
   },
   { 'Bilal2453/luvit-meta', lazy = true },
+  {
+    'saghen/blink.cmp',
+    optional = true,
+    opts = {
+      sources = {
+        default = { 'lazydev' },
+        providers = {
+          lazydev = {
+            name = 'LazyDev',
+            module = 'lazydev.integrations.blink',
+            fallbacks = { 'lsp' },
+          },
+        },
+      },
+    },
+  },
 }

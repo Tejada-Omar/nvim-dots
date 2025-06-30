@@ -2,7 +2,7 @@ return {
   {
     'neovim/nvim-lspconfig',
     event = { 'VimEnter', 'BufNew' },
-    dependencies = { 'hrsh7th/cmp-nvim-lsp' },
+    dependencies = { 'saghen/blink.cmp' },
     keys = {
       { '<localleader>e', vim.diagnostic.open_float, desc = 'Open diagnostic' },
       {
@@ -14,16 +14,11 @@ return {
         '<localleader>s',
         function()
           vim.g.diag_virt_text = not vim.g.diag_virt_text
-          vim.diagnostic.show(
-            nil,
-            nil,
-            nil,
-            {
-              virtual_text = vim.g.diag_virt_text,
-              underline = vim.g.diag_virt_text,
-              signs = vim.g.diag_virt_text,
-            }
-          )
+          vim.diagnostic.show(nil, nil, nil, {
+            virtual_text = vim.g.diag_virt_text,
+            underline = vim.g.diag_virt_text,
+            signs = vim.g.diag_virt_text,
+          })
         end,
         desc = 'Toggle diagnostic virtual text',
       },
@@ -32,7 +27,7 @@ return {
       local lsp = require('lspconfig')
       local utils = require('omar.plugins.lsp.utils.utils')
 
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
       local on_attach = function(_, bufnr) utils.mappings(bufnr) end
 
       vim.lsp.set_log_level(vim.lsp.log_levels.WARN)
