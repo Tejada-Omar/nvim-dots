@@ -5,31 +5,12 @@ return {
     config = true,
   },
   {
-    'nvim-lualine/lualine.nvim',
-    event = 'UIEnter',
-    init = function() vim.o.showmode = false end,
-    opts = {
-      options = {
-        icons_enabled = false,
-        globalstatus = true,
-        theme = vim.g.lualine_theme,
-      },
-      sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { 'filename' },
-        lualine_c = { 'branch' },
-        lualine_x = {
-          'filetype',
-          'progress',
-        },
-        lualine_y = {
-          'diff',
-          'searchcount',
-        },
-        lualine_z = { 'location' },
-      },
-      inactive_sections = {},
-    },
+    'echasnovski/mini.icons',
+    opts = function()
+      return {
+        style = vim.g.fancy_living and 'glyph' or 'ascii',
+      }
+    end,
   },
   {
     'folke/which-key.nvim',

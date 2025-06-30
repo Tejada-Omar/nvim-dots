@@ -25,6 +25,7 @@ vim.opt.jumpoptions = { 'view', 'clean' }
 vim.g.netrw_liststyle = 3
 vim.g.netrw_banner = 0
 
+vim.o.laststatus = 3
 vim.o.cmdheight = 1
 vim.o.spell = false
 
