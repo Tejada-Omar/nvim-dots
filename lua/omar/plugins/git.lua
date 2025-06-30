@@ -97,7 +97,6 @@ return {
   },
   {
     'NeogitOrg/neogit',
-    event = 'VeryLazy',
     keys = {
       { '<leader>gg', '<CMD>Neogit<CR>', desc = 'Open Neogit' },
       {
