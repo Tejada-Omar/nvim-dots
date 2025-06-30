@@ -111,11 +111,11 @@ return {
         staged_diff_split_kind = 'auto',
       },
       integrations = {
-        snacks = false
-      }
+        snacks = false,
+      },
     },
     dependencies = {
-      {'sindrets/diffview.nvim', optional = true},
+      { 'sindrets/diffview.nvim', optional = true },
       'nvim-telescope/telescope.nvim',
     },
   },
