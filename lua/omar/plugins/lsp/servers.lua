@@ -11,7 +11,7 @@ return {
         desc = 'Add all diagnostics to quickfix list',
       },
       {
-        '<localleader>s',
+        '<leader>tv',
         function()
           vim.g.diag_virt_text = not vim.g.diag_virt_text
           vim.diagnostic.show(nil, nil, nil, {
