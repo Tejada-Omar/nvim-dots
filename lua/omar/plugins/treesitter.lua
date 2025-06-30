@@ -9,10 +9,6 @@ return {
         'nvim-treesitter/nvim-treesitter-context',
         opts = { min_window_height = 24, max_lines = 4 },
       },
-      {
-        'JoosepAlviste/nvim-ts-context-commentstring',
-        opts = { enable_autocmd = false },
-      },
     },
     init = function()
       vim.g.skip_ts_context_commentstring_module = true

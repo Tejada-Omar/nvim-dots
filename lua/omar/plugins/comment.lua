@@ -1,13 +1,11 @@
 return {
   {
-    'numToStr/Comment.nvim',
+    'echasnovski/mini.comment',
     opts = {
-      pre_hook = function()
-        require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook()
-      end,
+      options = {
+        ignore_blank_line = true,
+      },
     },
-    config = true,
-    dependencies = { 'JoosepAlviste/nvim-ts-context-commentstring' },
   },
   {
     'kylechui/nvim-surround',
