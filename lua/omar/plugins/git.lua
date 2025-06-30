@@ -116,7 +116,7 @@ return {
     },
     dependencies = {
       { 'sindrets/diffview.nvim', optional = true },
-      'nvim-telescope/telescope.nvim',
+      { 'ibhagwan/fzf-lua', optional = true },
     },
   },
   {

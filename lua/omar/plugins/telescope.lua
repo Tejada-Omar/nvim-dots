@@ -41,86 +41,6 @@ return {
         },
       },
     },
-    keys = {
-      {
-        '<leader>ff',
-        function()
-          require('telescope.builtin').find_files {
-            follow = true,
-            hidden = true,
-          }
-        end,
-        desc = 'Fuzzy-find files',
-      },
-      {
-        '<leader>fg',
-        '<CMD>Telescope live_grep<CR>',
-        desc = 'Live-grep files',
-      },
-      {
-        '<leader>fG',
-        function()
-          require('telescope.builtin').live_grep {
-            grep_open_files = true,
-          }
-        end,
-        desc = 'Live-grep open files',
-      },
-      {
-        '<leader>fj',
-        function() require('telescope.builtin').jumplist() end,
-        desc = 'Fuzzy-find jumplist',
-      },
-      {
-        '<leader>fb',
-        function()
-          require('telescope.builtin').buffers {
-            cwd_only = true,
-            sort_mru = true,
-          }
-        end,
-        desc = 'Fuzzy-find buffers',
-      },
-      {
-        '<leader>fh',
-        '<CMD>Telescope help_tags<CR>',
-        desc = 'Fuzzy-find help tags',
-      },
-      {
-        '<leader>fm',
-        function()
-          require('telescope.builtin').man_pages {
-            sections = { '1', '2', '3', '5', '7' },
-          }
-        end,
-        desc = 'Fuzzy-find man pages',
-      },
-      {
-        '<leader>fo',
-        '<CMD>Telescope oldfiles<CR>',
-        desc = 'Fuzzy-find old files',
-      },
-      {
-        '<leader>fr',
-        '<CMD>Telescope registers<CR>',
-        desc = 'Fuzzy-find registers',
-      },
-      {
-        '<leader>fc',
-        '<CMD>Telescope command_history<CR>',
-        desc = 'Fuzzy-find command history',
-      },
-      {
-        '<leader>fw',
-        function() require('telescope.builtin').lsp_document_symbols() end,
-        desc = 'Find LSP document symbols',
-      },
-      {
-        '<leader>fW',
-        function() require('telescope.builtin').lsp_dynamic_workspace_symbols() end,
-        desc = 'Find LSP workspace symbols',
-      },
-    },
     config = true,
     dependencies = {
       {
@@ -150,7 +70,7 @@ return {
       {
         '<leader>fu',
         '<CMD>Telescope undo<CR>',
-        desc = 'Fuzzy-find undo history',
+        desc = 'Fzf undolist',
       },
     },
     config = function(_, opts)
@@ -212,7 +132,7 @@ return {
       {
         '<leader>fs',
         '<CMD>Telescope persisted<CR>',
-        desc = 'Fuzzy-find sessions',
+        desc = 'Fzf sessions',
       },
     },
   },
