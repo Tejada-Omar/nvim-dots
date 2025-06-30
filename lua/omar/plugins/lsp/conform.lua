@@ -17,7 +17,7 @@ return {
     },
     opts = {
       default_format_opts = {
-        lsp_format = "fallback"
+        lsp_format = 'fallback',
       },
       formatters_by_ft = {
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
@@ -48,13 +48,13 @@ return {
         dart = { 'dart_format' },
         ['_'] = { 'trim_newlines', 'trim_whitespace' },
       },
-      format_on_save = function(bufnr)
+      format_after_save = function(bufnr)
         if
           not (vim.g.autoformat_enabled or vim.b[bufnr].autoformat_enabled)
         then
           return
         end
-        return { timeout_ms = 500 }
+        return { bufnr = bufnr }
       end,
     },
     config = function(_, opts)
