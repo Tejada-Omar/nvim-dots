@@ -3,30 +3,16 @@ local M = {}
 M.mappings = function(bufnr)
   vim.keymap.set(
     'n',
-    'gD',
+    'grD',
     vim.lsp.buf.declaration,
     { desc = 'Jump to function declaration', buffer = bufnr }
   )
 
   vim.keymap.set(
     'n',
-    'gd',
-    vim.lsp.buf.definition,
-    { desc = 'Jump to function definition', buffer = bufnr }
-  )
-
-  vim.keymap.set(
-    'n',
-    'gi',
-    vim.lsp.buf.implementation,
-    { desc = 'List all implementations in quickfix window', buffer = bufnr }
-  )
-
-  vim.keymap.set(
-    'n',
-    '<C-k>',
-    vim.lsp.buf.signature_help,
-    { desc = 'Display signature info in floating window', buffer = bufnr }
+    'grd',
+    vim.lsp.buf.type_definition,
+    { desc = 'Jump to type definition', buffer = bufnr }
   )
 
   vim.keymap.set(
@@ -49,32 +35,6 @@ M.mappings = function(bufnr)
     function() vim.print(vim.lsp.buf.list_workspace_folders()) end,
     { desc = 'List workspace windows', buffer = bufnr }
   )
-
-  vim.keymap.set(
-    'n',
-    '<localleader>d',
-    vim.lsp.buf.type_definition,
-    { desc = 'Jump to type definition', buffer = bufnr }
-  )
-
-  vim.keymap.set(
-    'n',
-    '<localleader>rn',
-    vim.lsp.buf.rename,
-    { desc = 'Rename all references to symbol', buffer = bufnr }
-  )
-
-  vim.keymap.set(
-    'n',
-    '<localleader>ca',
-    function() vim.lsp.buf.code_action { triggerKind = 1 } end,
-    { desc = 'Select an available code action', buffer = bufnr }
-  )
-
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, {
-    desc = 'List all references to symbol in quickfix window',
-    buffer = bufnr,
-  })
 end
 
 return M
