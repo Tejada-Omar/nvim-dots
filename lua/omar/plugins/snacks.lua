@@ -16,6 +16,7 @@ return {
         profiler = { enabled = true },
         picker = { enabled = true },
         input = { enabled = true },
+        bufdelete = { enabled = true },
       }
     end,
     keys = {
@@ -33,6 +34,16 @@ return {
         '<leader>to',
         function() require('snacks.zen').zoom() end,
         desc = 'Toggle zoom mode',
+      },
+      {
+        '<leader>dd',
+        function() require('snacks.bufdelete').delete() end,
+        desc = 'Delete current buffer',
+      },
+      {
+        '<leader>do',
+        function() require('snacks.bufdelete').other() end,
+        desc = 'Delete other buffers',
       },
     },
     init = function()
