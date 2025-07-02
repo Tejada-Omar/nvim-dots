@@ -6,6 +6,13 @@ return {
       vim.cmd.FzfLua('register_ui_select')
     end,
     opts = {
+      'borderless',
+      winopts = {
+        fullscreen = true,
+        preview = {
+          hidden = true,
+        },
+      },
       keymap = {
         fzf = {
           true,
