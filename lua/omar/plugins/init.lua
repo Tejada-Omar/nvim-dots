@@ -16,9 +16,14 @@ return {
       disable_legacy_commands = true,
     },
     keys = {
-      { '<leader><leader>i', '<CMD>IconPickerNormal<CR>' },
-      { '<leader><leader>y', '<CMD>IconPickerYank<CR>' },
-      { '<C-S-u>', '<CMD>IconPickerInsert<CR>', mode = 'i' },
+      { '<leader><leader>i', '<CMD>IconPickerNormal<CR>', desc = 'Pick icon' },
+      { '<leader><leader>y', '<CMD>IconPickerYank<CR>', desc = 'Yank icon' },
+      {
+        '<C-S-u>',
+        '<CMD>IconPickerInsert<CR>',
+        mode = 'i',
+        desc = 'Insert icon',
+      },
     },
   },
   {
