@@ -15,6 +15,7 @@ return {
         debug = { enabled = true },
         profiler = { enabled = true },
         picker = { enabled = true },
+        input = { enabled = true },
       }
     end,
     keys = {
