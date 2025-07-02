@@ -1,6 +1,10 @@
 return {
   {
     'ibhagwan/fzf-lua',
+    config = function(_, opts)
+      require('fzf-lua').setup(opts)
+      vim.cmd.FzfLua('register_ui_select')
+    end,
     opts = {
       keymap = {
         fzf = {
