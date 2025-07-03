@@ -114,7 +114,7 @@ return {
         'java.base/java.lang=ALL-UNNAMED',
         '-jar',
         jdtls_root_dir
-          .. '/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar',
+          .. '/plugins/org.eclipse.equinox.launcher_1.7.0.v20250331-1702.jar',
         '-configuration',
         jdtls_root_dir .. '/config_linux',
         '-data',
