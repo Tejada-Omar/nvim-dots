@@ -14,7 +14,7 @@ return {
         dim = { enabled = true },
         debug = { enabled = true },
         profiler = { enabled = true },
-        picker = { enabled = true },
+        picker = { enabled = true, ui_select = false },
         input = { enabled = true },
         bufdelete = { enabled = true },
       }
