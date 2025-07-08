@@ -1,6 +1,5 @@
 return {
   'nvim-lua/plenary.nvim',
-  'stevearc/dressing.nvim',
   {
     'AckslD/nvim-FeMaco.lua',
     config = true,
@@ -11,7 +10,6 @@ return {
   },
   {
     'ziontee113/icon-picker.nvim',
-    dependencies = { 'stevearc/dressing.nvim' },
     opts = {
       disable_legacy_commands = true,
     },

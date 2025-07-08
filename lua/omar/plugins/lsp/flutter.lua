@@ -2,10 +2,7 @@ return {
   {
     'nvim-flutter/flutter-tools.nvim',
     ft = 'dart',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'stevearc/dressing.nvim',
-    },
+    dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {
       debugger = { enabled = true },
       dev_tools = {

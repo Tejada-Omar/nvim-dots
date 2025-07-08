@@ -6,7 +6,6 @@
   "cmp-vimtex": { "branch": "master", "commit": "5283bf9108ef33d41e704027b9ef22437ce7a15b" },
   "conform.nvim": { "branch": "master", "commit": "4c9003aab62879612c50136649baa1b8ed36cfa1" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
-  "dressing.nvim": { "branch": "master", "commit": "2d7c2db2507fa3c4956142ee607431ddb2828639" },
   "everblush": { "branch": "main", "commit": "678f808d81801b983b6fb8296fb17ba1b2785d7c" },
   "fidget.nvim": { "branch": "main", "commit": "d9ba6b7bfe29b3119a610892af67602641da778e" },
   "flutter-tools.nvim": { "branch": "main", "commit": "3a3f6f5fadf7e1b976ba5f35df0219d1d4762a38" },
