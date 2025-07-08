@@ -24,15 +24,13 @@ return {
         file_icons = false,
         git_icons = false,
       },
-      previewers = {
-        files = {
-          follow = true,
-          fd_opts = "-c never -H -tf -E .git -l -E 'node_modules' -E '*.lock' -E '*lock.json'",
-        },
-        grep = {
-          fd_opts = "-c never -H -tf -E .git -l -E node_modules -E '*.lock' -E '*lock.json'",
-          rg_opts = "--column -n --no-heading --color=always -S --max-columns=4096 -g '!{.git,node_modules,*.lock,*lock.json}' -e ",
-        },
+      files = {
+        follow = true,
+        fd_opts = "-c never -tf -tl -E .git -E node_modules -E '*.lock' -E '*lock.json'",
+      },
+      grep = {
+        fd_opts = "-c never -tf -tl -E .git -E node_modules -E '*.lock' -E '*lock.json'",
+        rg_opts = "--column -n --no-heading --color=always -S --max-columns=4096 -g '!{.git,node_modules,*.lock,*lock.json}' -e ",
       },
     },
     keys = {
