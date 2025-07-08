@@ -12,8 +12,8 @@ return {
       {
         '<leader>xt',
         '<CMD>TodoTrouble<CR>',
-        desc = 'Quickfix List (Trouble)',
+        desc = 'Todo List (Trouble)',
       },
-    }
+    },
   },
 }
