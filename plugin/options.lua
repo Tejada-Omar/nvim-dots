@@ -30,3 +30,14 @@ vim.o.cmdheight = 1
 vim.o.spell = false
 
 vim.opt.grepprg = 'rg -HS --vimgrep $*'
+
+vim.opt.sessionoptions = {
+  'blank',
+  'curdir',
+  'folds',
+  'help',
+  'tabpages',
+  'winsize',
+  'terminal',
+  'localoptions',
+}
