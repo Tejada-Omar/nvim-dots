@@ -44,16 +44,7 @@ return {
         enabled = true,
         window = { max_height = 20, show_documentation = false },
       },
-      snippets = {
-        expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
-        jump = function(direction) require('luasnip').jump(direction) end,
-        active = function(filter)
-          if filter and filter.direction then
-            return require('luasnip').jumpable(filter.direction)
-          end
-          return require('luasnip').in_snippet()
-        end,
-      },
+      snippets = { preset = 'luasnip' },
     },
   },
   {
