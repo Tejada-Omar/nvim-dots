@@ -10,7 +10,7 @@ return {
       keymap = {
         preset = 'none',
         ['<C-SPACE>'] = { 'show', 'show_documentation', 'hide_documentation' },
-        ['<C-l>'] = { 'show_signature', 'hide_signature' },
+        ['<C-s>'] = { 'show_signature', 'hide_signature' },
         ['<C-e>'] = { 'hide', 'fallback' },
         ['<CR>'] = { 'accept', 'fallback' },
 

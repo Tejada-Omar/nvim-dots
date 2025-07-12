@@ -1,5 +1,28 @@
 vim.keymap.set('i', 'jk', '<Esc>')
 
+vim.keymap.set(
+  'n',
+  '<localleader>q',
+  vim.diagnostic.setqflist,
+  { desc = 'Add all diagnostics to quickfix list' }
+)
+
+vim.keymap.set(
+  'n',
+  '<localleader>e',
+  vim.diagnostic.open_float,
+  { desc = 'Add all diagnostics to quickfix list' }
+)
+
+vim.keymap.set('n', '<leader>tv', function()
+  vim.g.diag_virt_text = not vim.g.diag_virt_text
+  vim.diagnostic.show(nil, nil, nil, {
+    virtual_text = vim.g.diag_virt_text,
+    underline = vim.g.diag_virt_text,
+    signs = vim.g.diag_virt_text,
+  })
+end, { desc = 'Toggle diagnostic virtual text' })
+
 vim.keymap.set('n', '<leader>fs', function()
   local fzf = require('fzf-lua')
   fzf.files {

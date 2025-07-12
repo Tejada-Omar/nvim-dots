@@ -6,10 +6,10 @@ return {
     config = function()
       local jdtls = require('jdtls')
       local jdtlsdap = require('jdtls.dap')
-      local utils = require('omar.plugins.lsp.utils.utils')
+      local utils = require('omar.lsp.maps')
 
-      local on_attach = function(_, bufnr)
-        utils.mappings(bufnr)
+      local on_attach = function(client, bufnr)
+        utils.mappings(client, bufnr)
 
         vim.keymap.set(
           'n',

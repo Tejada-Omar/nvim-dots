@@ -5,4 +5,9 @@ return {
     config = true,
     cond = vim.g.lsp_enabled,
   },
+  {
+    'neovim/nvim-lspconfig',
+    lazy = false,
+    cond = vim.g.lsp_enabled,
+  },
 }

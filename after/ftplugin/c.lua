@@ -1,6 +1,4 @@
-if vim.g.lsp_enabled == false then
-  return
-end
+if vim.g.lsp_enabled == false then return end
 
 local dap = require('dap')
 

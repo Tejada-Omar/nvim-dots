@@ -43,9 +43,9 @@ return {
     lazy = false,
     init = function()
       vim.g.rustaceanvim = function()
-        local on_attach = function(_, bufnr)
-          local utils = require('omar.plugins.lsp.utils.utils')
-          utils.mappings(bufnr)
+        local on_attach = function(client, bufnr)
+          local utils = require('omar.lsp.maps')
+          utils.on_attach(client, bufnr)
         end
 
         return {

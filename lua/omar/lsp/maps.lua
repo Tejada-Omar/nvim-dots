@@ -1,6 +1,6 @@
 local M = {}
 
-M.mappings = function(bufnr)
+M.on_attach = function(_, bufnr)
   vim.keymap.set(
     'n',
     'grD',

@@ -18,9 +18,9 @@ return {
           virtual_text = true, -- show the highlight using virtual text
           virtual_text_str = '■', -- the virtual text character to highlight
         },
-        on_attach = function(_, bufnr)
-          local utils = require('omar.plugins.lsp.utils.utils')
-          utils.mappings(bufnr)
+        on_attach = function(client, bufnr)
+          local utils = require('omar.lsp.maps')
+          utils.on_attach(client, bufnr)
         end,
         capabilities = require('blink.cmp').get_lsp_capabilities(),
         -- see the link below for details on each option:
