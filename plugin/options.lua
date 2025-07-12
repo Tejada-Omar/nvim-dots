@@ -8,6 +8,8 @@ vim.o.conceallevel = 2
 vim.o.fillchars = 'fold: '
 vim.o.foldenable = true
 vim.o.foldlevelstart = 5
+vim.o.foldmethod = 'expr'
+vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 
 vim.o.expandtab = true
 vim.o.tabstop = 2
