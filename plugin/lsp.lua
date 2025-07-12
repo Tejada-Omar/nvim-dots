@@ -47,3 +47,13 @@ vim.lsp.enable({
   'docker_compose_language_service',
   'buf_ls',
 }, vim.g.lsp_enabled)
+
+-- Close import/comment folds on buffer open
+vim.api.nvim_create_autocmd('LspNotify', {
+  callback = function(args)
+    if args.data.method == 'textDocument/didOpen' then
+      vim.lsp.foldclose('imports', vim.fn.bufwinid(args.buf))
+      vim.lsp.foldclose('comment', vim.fn.bufwinid(args.buf))
+    end
+  end,
+})
