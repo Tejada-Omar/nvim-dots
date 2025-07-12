@@ -37,42 +37,6 @@ return {
     },
   },
   {
-    'mrcjkb/rustaceanvim',
-    build = ':helptags ALL',
-    cond = vim.g.lsp_enabled,
-    lazy = false,
-    init = function()
-      vim.g.rustaceanvim = function()
-        local on_attach = function(client, bufnr)
-          local utils = require('omar.lsp.maps')
-          utils.on_attach(client, bufnr)
-        end
-
-        return {
-          server = {
-            on_attach = on_attach,
-            default_settings = {
-              ['rust-analyzer'] = {
-                procMacro = {
-                  enable = true,
-                  ignored = {
-                    ['async-trait'] = { 'async_trait' },
-                    ['napi-derive'] = { 'napi' },
-                    ['async-recursion'] = { 'async_recursion' },
-                  },
-                },
-              },
-            },
-          },
-          dap = {
-            auto_generate_source_map = true,
-            load_rust_types = true,
-          },
-        }
-      end
-    end,
-  },
-  {
     'rcarriga/nvim-dap-ui',
     cond = vim.g.lsp_enabled,
     dependencies = {
