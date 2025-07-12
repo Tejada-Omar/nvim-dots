@@ -14,7 +14,9 @@ M.on_attach = function(_, bufnr)
     vim.lsp.buf.type_definition,
     { desc = 'Jump to type definition', buffer = bufnr }
   )
+end
 
+M.workspace = function(_, bufnr)
   vim.keymap.set(
     'n',
     '<localleader>wa',
