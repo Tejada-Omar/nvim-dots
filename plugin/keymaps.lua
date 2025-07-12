@@ -14,14 +14,29 @@ vim.keymap.set(
   { desc = 'Add all diagnostics to quickfix list' }
 )
 
-vim.keymap.set('n', '<leader>tv', function()
+vim.keymap.set('n', '<leader>tdv', function()
   vim.g.diag_virt_text = not vim.g.diag_virt_text
+  if vim.g.diag_virt_text then vim.g.diag_virt_lines = false end
+
   vim.diagnostic.show(nil, nil, nil, {
     virtual_text = vim.g.diag_virt_text,
+    virtual_lines = vim.g.diag_virt_lines,
     underline = vim.g.diag_virt_text,
     signs = vim.g.diag_virt_text,
   })
 end, { desc = 'Toggle diagnostic virtual text' })
+
+vim.keymap.set('n', '<leader>tdl', function()
+  vim.g.diag_virt_lines = not vim.g.diag_virt_lines
+  if vim.g.diag_virt_lines then vim.g.diag_virt_text = false end
+
+  vim.diagnostic.show(nil, nil, nil, {
+    virtual_text = vim.g.diag_virt_text,
+    virtual_lines = vim.g.diag_virt_lines,
+    underline = vim.g.diag_virt_lines,
+    signs = vim.g.diag_virt_lines,
+  })
+end, { desc = 'Toggle diagnostic virtual lines' })
 
 vim.keymap.set('n', '<leader>fs', function()
   local fzf = require('fzf-lua')

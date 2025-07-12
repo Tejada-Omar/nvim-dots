@@ -56,7 +56,7 @@ return {
           vim.print = _G.dd -- Override print to use snacks for `:=` command
 
           -- Create some toggle mappings
-          Snacks.toggle.diagnostics():map('<leader>td')
+          Snacks.toggle.diagnostics():map('<leader>tdd')
           Snacks.toggle.treesitter():map('<leader>tT')
           Snacks.toggle.inlay_hints():map('<leader>ti')
           Snacks.toggle.dim():map('<leader>tD')
