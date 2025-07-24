@@ -41,6 +41,10 @@ return {
       },
       mappings = {
         prefix = '<localleader>',
+        global = {
+          org_capture = '<leader>cc',
+          org_agenda = '<leader>ca',
+        },
       },
     },
     dependencies = {

@@ -10,7 +10,7 @@ return {
       },
     },
     keys = {
-      { '<leader>cc', '<CMD>CccPick<CR>', desc = 'Open color picker' },
+      { '<leader>ch', '<CMD>CccPick<CR>', desc = 'Open color picker' },
       {
         '<leader>ct',
         '<CMD>CccHighlighterToggle<CR>',
