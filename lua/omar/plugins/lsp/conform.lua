@@ -15,6 +15,7 @@ return {
         desc = 'Format buffer',
       },
     },
+    -- TODO: Use function to copy duplicated tables
     opts = {
       default_format_opts = {
         lsp_format = 'fallback',
@@ -31,8 +32,18 @@ return {
         jsonc = { 'prettierd', 'prettier', stop_after_first = true },
         json5 = { 'prettierd', 'prettier', stop_after_first = true },
         jsx = { 'prettierd', 'prettier', stop_after_first = true },
-        markdown = { 'prettierd', 'prettier', stop_after_first = true },
-        ['markdown.mdx'] = { 'prettierd', 'prettier', stop_after_first = true },
+        markdown = {
+          'prettierd',
+          'prettier',
+          stop_after_first = true,
+          lsp_format = 'prefer',
+        },
+        ['markdown.mdx'] = {
+          'prettierd',
+          'prettier',
+          stop_after_first = true,
+          lsp_format = 'prefer',
+        },
         yaml = { 'prettierd', 'prettier', stop_after_first = true },
 
         python = { 'black' },
