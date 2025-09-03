@@ -6,7 +6,7 @@ local in_text = function() return vim.fn['vimtex#syntax#in_mathzone']() == 0 end
 ---@diagnostic disable undefined-global
 local insert_env_option = function(name, show_option)
   local tex_opt = sn(nil, { t('['), i(1), t(']') })
-  local choice =  show_option == true and { tex_opt, t('') }
+  local choice = show_option == true and { tex_opt, t('') }
     or { t(''), tex_opt }
 
   return fmta(
