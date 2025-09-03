@@ -69,6 +69,20 @@ call vimtex#imaps#add_map({
           'description',
         },
       }
+
+      vim.fn['vimtex#imaps#add_map'] {
+        lhs = 'o',
+        rhs = '\\omega',
+        leader = '`',
+        wrapper = 'vimtex#imaps#wrap_math',
+      }
+
+      vim.fn['vimtex#imaps#add_map'] {
+        lhs = 'O',
+        rhs = '\\Omega',
+        leader = '`',
+        wrapper = 'vimtex#imaps#wrap_math',
+      }
     end,
     keys = {
       {
