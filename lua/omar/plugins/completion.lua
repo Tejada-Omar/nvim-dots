@@ -25,6 +25,7 @@ return {
       },
       sources = { default = sources },
       completion = {
+        keyword = { range = 'full' },
         list = {
           selection = { preselect = false, auto_insert = false },
         },
