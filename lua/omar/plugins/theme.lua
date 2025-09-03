@@ -22,7 +22,7 @@ return {
         },
       },
       win = {
-        border = 'double',
+        title = false,
       },
     },
   },
