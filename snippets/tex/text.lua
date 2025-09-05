@@ -175,21 +175,28 @@ return {
       i(1),
     })
   ),
-
+}, {
   s({
-    trig = 'bold',
+    trig = '`b',
     desc = 'Create bold text',
     condition = in_text,
     show_condition = in_text,
   }, fmta('\\textbf{<>}<>', { i(1), i(0) })),
 
   s({
-    trig = 'italic',
+    trig = '`i',
     desc = 'Create italic text',
     condition = in_text,
     show_condition = in_text,
   }, fmta('\\textit{<>}<>', { i(1), i(0) })),
-}, {
+
+  s({
+    trig = '`e',
+    desc = 'Create emph text',
+    condition = in_text,
+    show_condition = in_text,
+  }, fmta('\\emph{<>}<>', { i(1), i(0) })),
+
   s(
     {
       trig = ';i',
