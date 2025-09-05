@@ -110,6 +110,9 @@ return {
         kind = 'replace',
         staged_diff_split_kind = 'auto',
       },
+      commit_view = {
+        kind = 'auto',
+      },
       integrations = {
         snacks = false,
       },
