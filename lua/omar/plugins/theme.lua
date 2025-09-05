@@ -5,7 +5,7 @@ return {
     config = true,
   },
   {
-    'echasnovski/mini.icons',
+    'nvim-mini/mini.icons',
     opts = function()
       return {
         style = vim.g.fancy_living and 'glyph' or 'ascii',
