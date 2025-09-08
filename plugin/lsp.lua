@@ -48,6 +48,7 @@ vim.lsp.enable({
   'ansiblels',
   'docker_compose_language_service',
   'buf_ls',
+  'hls',
 }, vim.g.lsp_enabled)
 
 -- Close import/comment folds on buffer open
