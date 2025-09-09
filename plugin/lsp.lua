@@ -1,10 +1,6 @@
 vim.lsp.set_log_level(vim.lsp.log_levels.ERROR)
-vim.g.diag_virt_text = false
-vim.g.diag_virt_lines = false
 
 vim.diagnostic.config {
-  virtual_text = vim.g.diag_virt_text,
-  virtual_lines = vim.g.diag_virt_lines,
   signs = true,
   underline = { severity = { min = vim.diagnostic.severity.WARN } },
   severity_sort = true,

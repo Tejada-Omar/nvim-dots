@@ -15,27 +15,23 @@ vim.keymap.set(
 )
 
 vim.keymap.set('n', '<leader>tdv', function()
-  vim.g.diag_virt_text = not vim.g.diag_virt_text
-  if vim.g.diag_virt_text then vim.g.diag_virt_lines = false end
+  ---@type boolean|vim.diagnostic.Opts.VirtualText|fun(ns: integer, bufnr:integer): vim.diagnostic.Opts.VirtualText
+  local vt = false
+  if not vim.diagnostic.config().virtual_text then
+    vt = { severity = { min = vim.diagnostic.severity.WARN } }
+  end
 
-  vim.diagnostic.show(nil, nil, nil, {
-    virtual_text = vim.g.diag_virt_text,
-    virtual_lines = vim.g.diag_virt_lines,
-    underline = vim.g.diag_virt_text,
-    signs = vim.g.diag_virt_text,
-  })
+  vim.diagnostic.config { virtual_text = vt }
 end, { desc = 'Toggle diagnostic virtual text' })
 
 vim.keymap.set('n', '<leader>tdl', function()
-  vim.g.diag_virt_lines = not vim.g.diag_virt_lines
-  if vim.g.diag_virt_lines then vim.g.diag_virt_text = false end
+  ---@type boolean|vim.diagnostic.Opts.VirtualLines|fun(ns: integer, bufnr:integer): vim.diagnostic.Opts.VirtualLines
+  local vl = false
+  if not vim.diagnostic.config().virtual_lines then
+    vl = { severity = { min = vim.diagnostic.severity.WARN } }
+  end
 
-  vim.diagnostic.show(nil, nil, nil, {
-    virtual_text = vim.g.diag_virt_text,
-    virtual_lines = vim.g.diag_virt_lines,
-    underline = vim.g.diag_virt_lines,
-    signs = vim.g.diag_virt_lines,
-  })
+  vim.diagnostic.config { virtual_lines = vl }
 end, { desc = 'Toggle diagnostic virtual lines' })
 
 vim.keymap.set('n', '<leader>fs', function()
