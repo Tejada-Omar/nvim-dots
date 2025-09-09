@@ -60,9 +60,7 @@ return {
         ['_'] = { 'trim_newlines', 'trim_whitespace' },
       },
       format_after_save = function(bufnr)
-        if
-          not vim.g.autoformat_enabled or vim.b[bufnr].autoformat_disabled
-        then
+        if not vim.g.autoformat_enabled or vim.b[bufnr].autoformat_disabled then
           return
         end
         return { bufnr = bufnr }
