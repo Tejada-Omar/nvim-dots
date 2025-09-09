@@ -6,6 +6,7 @@ vim.diagnostic.config {
   virtual_text = vim.g.diag_virt_text,
   virtual_lines = vim.g.diag_virt_lines,
   signs = true,
+  underline = { severity = { min = vim.diagnostic.severity.WARN } },
   severity_sort = true,
   float = { source = true },
 }
