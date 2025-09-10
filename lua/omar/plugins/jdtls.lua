@@ -61,7 +61,7 @@ return {
         )
       end
 
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
+      local capabilities = require('omar.lsp.options').get_lsp_capabilities()
 
       local extendedClientCapabilities =
         require('jdtls').extendedClientCapabilities

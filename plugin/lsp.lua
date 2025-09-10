@@ -7,9 +7,8 @@ vim.diagnostic.config {
   float = { source = true },
 }
 
-local capabilities = require('blink.cmp').get_lsp_capabilities()
 vim.lsp.config('*', {
-  capabilities = capabilities,
+  capabilities = require('omar.lsp.options').get_lsp_capabilities(),
 })
 
 local clangd_on_attach = vim.lsp.config['clangd'].on_attach

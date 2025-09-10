@@ -22,7 +22,7 @@ return {
           local utils = require('omar.lsp.maps')
           utils.on_attach(client, bufnr)
         end,
-        capabilities = require('blink.cmp').get_lsp_capabilities(),
+        capabilities = require('omar.lsp.options').get_lsp_capabilities(),
         -- see the link below for details on each option:
         -- https://github.com/dart-lang/sdk/blob/master/pkg/analysis_server/tool/lsp_spec/README.md#client-workspace-configuration
         --   settings = {
