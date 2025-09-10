@@ -7,13 +7,6 @@ M.on_attach = function(_, bufnr)
     vim.lsp.buf.declaration,
     { desc = 'Jump to function declaration', buffer = bufnr }
   )
-
-  vim.keymap.set(
-    'n',
-    'grd',
-    vim.lsp.buf.type_definition,
-    { desc = 'Jump to type definition', buffer = bufnr }
-  )
 end
 
 M.workspace = function(_, bufnr)
