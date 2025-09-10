@@ -1,6 +1,6 @@
 local M = {}
 
-M.on_attach = function(_, bufnr)
+M.on_attach = function(_client, bufnr)
   vim.keymap.set(
     'n',
     'grD',

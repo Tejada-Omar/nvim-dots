@@ -8,16 +8,14 @@ vim.diagnostic.config {
 }
 
 local capabilities = require('blink.cmp').get_lsp_capabilities()
-local on_attach = require('omar.lsp.maps').on_attach
-
 vim.lsp.config('*', {
   capabilities = capabilities,
-  on_attach = on_attach,
 })
 
+local clangd_on_attach = vim.lsp.config['clangd'].on_attach
 vim.lsp.config('clangd', {
   on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
+    if clangd_on_attach then clangd_on_attach(client, bufnr) end
 
     vim.keymap.set(
       'n',
@@ -74,6 +72,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     if not client then return end
+
+    require('omar.lsp.maps').on_attach(client, args.buf)
 
     ---@diagnostic disable-next-line: param-type-mismatch
     if client:supports_method('workspace/workspaceFolders', args.buf) then
