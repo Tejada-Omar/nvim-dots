@@ -98,9 +98,9 @@ return {
   {
     'NeogitOrg/neogit',
     keys = {
-      { '<leader>gg', '<CMD>Neogit<CR>', desc = 'Open Neogit' },
+      { '<leader>gn', '<CMD>Neogit<CR>', desc = 'Open Neogit' },
       {
-        '<leader>gG',
+        '<leader>gN',
         '<CMD>Neogit kind=auto<CR>',
         desc = 'Open Neogit in split',
       },
@@ -124,7 +124,6 @@ return {
   },
   {
     'tpope/vim-fugitive',
-    enabled = false,
     lazy = false,
     dependencies = { 'tpope/vim-rhubarb', 'shumphrey/fugitive-gitlab.vim' },
     keys = {
