@@ -5,10 +5,6 @@ return {
     config = true,
   },
   {
-    'andweeb/presence.nvim',
-    enabled = false,
-  },
-  {
     'ziontee113/icon-picker.nvim',
     opts = {
       disable_legacy_commands = true,
