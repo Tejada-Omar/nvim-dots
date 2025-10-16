@@ -19,12 +19,8 @@ local Profile = require('omar.profile')
 local nvim_profile = string.upper(os.getenv('NVIM_PROFILE') or '')
 vim.g.nvim_profile = Profile[nvim_profile] or Profile.DESKTOP
 
-vim.g.lsp_enabled = true
-if os.getenv('NVIM_LSP_ENABLED') ~= 'true' then vim.g.lsp_enabled = false end
-vim.g.autoformat_enabled = true
-if os.getenv('NVIM_AUTOFORMAT_ENABLED') ~= 'true' then
-  vim.g.autoformat_enabled = false
-end
+vim.g.lsp_enabled = os.getenv('NVIM_LSP_ENABLED') == 'true'
+vim.g.autoformat_enabled = os.getenv('NVIM_AUTOFORMAT_ENABLED') == 'true'
 
 local colorscheme = 'rose-pine'
 vim.g.lualine_theme = colorscheme
