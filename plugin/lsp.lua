@@ -37,11 +37,11 @@ vim.lsp.enable({
   'html',
   'bashls',
   'vimls',
-  'lemminx',
-  'tailwindcss',
+  -- 'lemminx',
+  -- 'tailwindcss',
   'ansiblels',
   'docker_compose_language_service',
-  'buf_ls',
+  -- 'buf_ls',
   'hls',
 }, vim.g.lsp_enabled)
 
