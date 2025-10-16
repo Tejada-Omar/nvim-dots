@@ -14,6 +14,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 vim.g.fancy_living = vim.fn.has('termguicolors') == 1
+
+local Profile = require('omar.profile')
+local nvim_profile = string.upper(os.getenv('NVIM_PROFILE') or '')
+vim.g.nvim_profile = Profile[nvim_profile] or Profile.DESKTOP
+
 vim.g.lsp_enabled = true
 if os.getenv('NVIM_LSP_ENABLED') ~= 'true' then vim.g.lsp_enabled = false end
 vim.g.autoformat_enabled = true
