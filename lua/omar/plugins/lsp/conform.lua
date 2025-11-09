@@ -57,6 +57,8 @@ return {
         cmake = { 'cmake_format' },
         sql = { 'sqlfluff' },
         dart = { 'dart_format' },
+        sh = { 'trim_newlines', 'trim_whitespace', lsp_format = 'never' },
+        bash = { 'trim_newlines', 'trim_whitespace', lsp_format = 'never' },
         ['_'] = { 'trim_newlines', 'trim_whitespace', lsp_format = 'prefer' },
       },
       format_after_save = function(bufnr)
