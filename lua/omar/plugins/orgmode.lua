@@ -73,7 +73,7 @@ return {
         desc = 'Refile orgmode headings',
       },
       {
-        '<leader>fF',
+        '<leader>fo',
         function()
           require('telescope').extensions.orgmode.search_headings {
             mode = 'orgfiles',
