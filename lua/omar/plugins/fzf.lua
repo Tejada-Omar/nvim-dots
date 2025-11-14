@@ -26,11 +26,11 @@ return {
       },
       files = {
         follow = true,
-        fd_opts = "-c never -tf -tl -E .git -E node_modules -E '*.lock' -E '*lock.json'",
+        fd_opts = "-c never -tf -tl -E worktrees -E .git -E node_modules -E '*.lock' -E '*lock.json'",
       },
       grep = {
-        fd_opts = "-c never -tf -tl -E .git -E node_modules -E '*.lock' -E '*lock.json'",
-        rg_opts = "--column -n --no-heading --color=always -S --max-columns=4096 -g '!{.git,node_modules,*.lock,*lock.json}' -e ",
+        fd_opts = "-c never -tf -tl -E worktrees -E .git -E node_modules -E '*.lock' -E '*lock.json'",
+        rg_opts = "--column -n --no-heading --color=always -S --max-columns=4096 -g '!{.git,node_modules,*.lock,*lock.json,worktrees}' -e ",
       },
     },
     keys = {
